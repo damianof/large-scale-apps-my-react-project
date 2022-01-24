@@ -3,6 +3,10 @@ import React from 'react'
 // import reference to our interface
 import { ItemInterface } from '../../models/items/Item.interface'
 
+// import reference to your Item component:
+import { ItemComponent } from './children/Item.component'
+
+
 // example using class syntax
 export class ItemsListComponent extends React.Component<{
   items: ItemInterface[],
@@ -20,14 +24,14 @@ export class ItemsListComponent extends React.Component<{
   }
   
   render(): React.ReactNode {
-    const { items } = this.props   
+    const { items } = this.props
 
     return <div>
         <h3>Items:</h3>
         <ul>
           {
             items.map((item, index) => {
-              return <li key={index} onClick={() => this.handleItemClick(item)}>{item.name} [{String(item.selected)}]</li>
+              return <ItemComponent key={index} model={item} onItemSelect={() => this.handleItemClick(item)}></ItemComponent>
             })
           }
         </ul>
