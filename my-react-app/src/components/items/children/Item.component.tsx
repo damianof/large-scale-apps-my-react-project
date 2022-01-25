@@ -1,4 +1,5 @@
-// example using class extending component
+// file: Item.component.tsx
+
 import React from 'react'
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
