@@ -1,11 +1,11 @@
-import React from 'react'
+// file: Item.rendering.test.tsx
+
 import { render, screen, prettyDOM } from '@testing-library/react'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
-
 
 test('renders an Item text correctly', () => {
   const model: ItemInterface = {
@@ -15,7 +15,9 @@ test('renders an Item text correctly', () => {
   }
 
   render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  // using react testing library "screen" to get the element by text
   const textElement = screen.getByText(/Unit test item 1/i)
+  // test by expecting the element to exist in the component
   expect(textElement).toBeInTheDocument()
 })
 
@@ -27,7 +29,9 @@ test('renders an Item indicator correctly', () => {
   }
 
   render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  // using react testing library "screen" to get the element by text
   const indicatorElement = screen.getByText(/\*/i)
+  // test by expecting the element to exist in the component
   expect(indicatorElement).toBeInTheDocument()
 })
 
@@ -38,10 +42,14 @@ test('has expected css class when selected is true', () => {
     selected: true
   }
 
+  // this time invoke "render" by get a reference to the root container
   const {container} = render(<ItemComponent model={model} onItemSelect={() => {}}/>)
-  const element = container.firstChild as HTMLElement
-  //console.log(`container.className ${ element?.className }`, prettyDOM(element) )
-  expect(element?.className).toEqual('item selected')
+  // the container firstChild is a reference to our <li> element
+  const liElement = container.firstChild as HTMLElement
+  // Note that you could use testing library prettyDOM function to console.log the lement
+  //console.log(`container.className ${ element?.className }`, prettyDOM(liElement) )
+  // check that the element className attribute has the expected value
+  expect(liElement?.className).toEqual('item selected')
 })
 
 test('has expected css class when selected is false', () => {
@@ -51,7 +59,10 @@ test('has expected css class when selected is false', () => {
     selected: false
   }
 
+  // this time invoke "render" by get a reference to the root container
   const {container} = render(<ItemComponent model={model} onItemSelect={() => {}}/>)
-  const element = container.firstChild as HTMLElement
-  expect(element?.className).toEqual('item')
+  // the container firstChild is a reference to our <li> element
+  const liElement = container.firstChild as HTMLElement
+  // check that the element className attribute has the expected value
+  expect(liElement?.className).toEqual('item')
 })

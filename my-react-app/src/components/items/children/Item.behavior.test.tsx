@@ -1,7 +1,8 @@
+// file: Item.behavior.test.tsx
+
 // NOTE: jest-dom adds handy assertions to Jest and it is recommended, but not required.
 import '@testing-library/jest-dom'
-
-import { render, screen, fireEvent, prettyDOM } from '@testing-library/react'
+import { render, fireEvent, prettyDOM } from '@testing-library/react'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'

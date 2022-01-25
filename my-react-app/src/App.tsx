@@ -1,3 +1,5 @@
+// file: App.tsx
+
 import { useState } from 'react'
 
 import './App.css'
@@ -6,24 +8,9 @@ import { ItemInterface } from './models/items/Item.interface'
 // import reference to your ItemsList component:
 import { ItemsListComponent } from './components/items/ItemsList.component'
 
-// mock data:
-// const items: ItemInterface[] = [{
-//   id: 1,
-//   name: 'Item 1',
-//   selected: false
-// }, {
-//   id: 2,
-//   name: 'Item 2',
-//   selected: false
-// }, {
-//   id: 3,
-//   name: 'Item 3',
-//   selected: false
-// }]
-
 // component:
 function App() {
-
+  // state
   const [items, setItems] = useState<ItemInterface[]>([{
     id: 1,
     name: 'Item 1',
@@ -38,6 +25,7 @@ function App() {
     selected: false
   }])
 
+  // item select event handler
   const onItemSelect = (item: ItemInterface) => {
     const updatedItems = [...items]
     const found = updatedItems.find(o => o.id === item.id) as ItemInterface
