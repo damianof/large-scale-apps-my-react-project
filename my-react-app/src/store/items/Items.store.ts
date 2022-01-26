@@ -12,28 +12,30 @@ import { ItemsStoreInterface, ItemsStoreActionsInterface } from './models'
 // import a reference to our ItemInterface
 import { ItemInterface } from '../../models/items/Item.interface'
 
+// import a reference to our apiClient instance
+import { apiClient } from '../../api-client'
+
 // hook to allows us to consume the ItemsStore instance in our components
 export function useItemsStore(): ItemsStoreInterface {
-  const dispatch = useDispatch() // globalStore.dispatch //useDispatch()
+  // note: we are callin dispatch "commit" here, as it make more sense to call it this way
+  // feel free to just call it dispatch if you prefer
+  const commit = useDispatch()
 
   // get a reference to our slice actions (which are really our mutations/commits)
-  const { loadItems, setLoading, setItemSelected } = itemsStoreSlice.actions 
+  const mutations = itemsStoreSlice.actions 
 
   // our items store actions implementation:
   const actions: ItemsStoreActionsInterface = {
     loadItems: async () => {
-      dispatch(setLoading(true))
-  
-      // let's pretend we called some API end-point
-      // and it takes 1 second to return the data
-      // by using javascript setTimeout with 1000 for the milliseconds option
-      setTimeout(() => {
-        dispatch(loadItems())
-      }, 1000)
+      commit(mutations.setLoading(true))
+
+      // invoke our API cient fetchItems to load the data from an API end-point
+      const data = await apiClient.items.fetchItems()
+      commit(mutations.setItems(data))
     },
     toggleItemSelected: async (item: ItemInterface) => {
       console.log('ItemsStore: action: toggleItemSelected', item)
-      dispatch(setItemSelected(item))
+      commit(mutations.setItemSelected(item))
     }
   }
 
