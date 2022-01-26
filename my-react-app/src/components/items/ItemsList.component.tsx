@@ -10,10 +10,12 @@ import { ItemComponent } from './children/Item.component'
 
 // example using class syntax
 export class ItemsListComponent extends React.Component<{
+  loading: boolean,
   items: ItemInterface[],
   onItemSelect: (item: ItemInterface) => void
 }> {
   constructor(props: {
+    loading: boolean,
     items: ItemInterface[],
     onItemSelect: (item: ItemInterface) => void
   }) {
@@ -25,10 +27,10 @@ export class ItemsListComponent extends React.Component<{
   }
   
   render(): React.ReactNode {
-    const { items } = this.props
+    const { loading, items } = this.props
 
     return <div>
-        <h3>Items:</h3>
+        <h3>Items - loading: { String(loading) }:</h3>
         <ul>
           {
             items.map((item, index) => {
