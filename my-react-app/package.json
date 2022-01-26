@@ -22,7 +22,7 @@
   "scripts": {
     "start": "cross-env REACT_APP_API_CLIENT=mock react-scripts start",
     "build": "cross-env REACT_APP_API_CLIENT=live react-scripts build",
-    "test": "cross-env REACT_APP_API_CLIENT=mock react-scripts test",
+    "test": "cross-env REACT_APP_API_CLIENT=mock react-scripts test --watchAll",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
