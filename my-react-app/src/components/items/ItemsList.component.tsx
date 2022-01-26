@@ -30,7 +30,7 @@ export class ItemsListComponent extends React.Component<{
     const { loading, items } = this.props
     
     let element
-    if (false) {
+    if (loading) {
       // render Loader
       element = <Loader />
     } else {
@@ -45,7 +45,7 @@ export class ItemsListComponent extends React.Component<{
     }
 
     return <div>
-        <h3>Items - loading: {String(loading)}:</h3>
+        <h3>Items:</h3>
         {element}
       </div>
   }

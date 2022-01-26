@@ -11,6 +11,7 @@
     "@types/node": "^16.11.21",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -20,8 +21,8 @@
   },
   "scripts": {
     "start": "cross-env REACT_APP_API_CLIENT=mock react-scripts start",
-    "build": "cross-env REACT_APP_API_CLIENT=production react-scripts build",
-    "test": "cross-env REACT_APP_API_CLIENT=test react-scripts test",
+    "build": "cross-env REACT_APP_API_CLIENT=live react-scripts build",
+    "test": "cross-env REACT_APP_API_CLIENT=mock react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
