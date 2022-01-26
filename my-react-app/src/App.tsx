@@ -1,43 +1,23 @@
 // file: App.tsx
 
-import { useState } from 'react'
-
+// import our app.css
 import './App.css'
-// import reference to our interface
-import { ItemInterface } from './models/items/Item.interface'
-// import reference to your ItemsList component:
-import { ItemsListComponent } from './components/items/ItemsList.component'
 
-// component:
+// import a reference to Redux Proivder and our globalStore
+import { Provider } from 'react-redux'
+import { globalStore} from './store'
+
+// import a reference to our ItemsView component
+import ItemsView from './views/Items.view'
+
+// App component:
 function App() {
-  // state
-  const [items, setItems] = useState<ItemInterface[]>([{
-    id: 1,
-    name: 'Item 1',
-    selected: true
-  }, {
-    id: 2,
-    name: 'Item 2',
-    selected: false
-  }, {
-    id: 3,
-    name: 'Item 3',
-    selected: false
-  }])
-
-  // item select event handler
-  const onItemSelect = (item: ItemInterface) => {
-    const updatedItems = [...items]
-    const found = updatedItems.find(o => o.id === item.id) as ItemInterface
-    found.selected = !item.selected
-    setItems(updatedItems)
-    console.log('App.tsx: onItemSelect', found.id, found.selected, updatedItems)
-  }
-
   return (
-    <div className="App">
-      <ItemsListComponent items={items} onItemSelect={onItemSelect}/>
-    </div>
+    <Provider store={globalStore}>{/* wrap the root App element with Redux store provider */}
+      <div className="App">
+        <ItemsView />
+      </div>
+    </Provider>
   )
 }
 
