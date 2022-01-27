@@ -1,6 +1,6 @@
 // file: src/models/api-client/items/ItemsApiClient.model.ts
 
-import axios, { AxiosRequestConfig, AxiosError, AxiosResponse } from 'axios'
+import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client' 
 
 import { ItemsApiClientUrlsInterface } from './ItemsApiClientUrls.interface'
 import { ItemsApiClientInterface } from './ItemsApiClient.interface'
@@ -26,29 +26,26 @@ import { ItemInterface } from '../../items/Item.interface'
   }
 
   fetchItems(): Promise<ItemInterface[]> {
-    return new Promise<ItemInterface[]>((resolve) => {
-      const url = this.urls.fetchItems
+    const requestParameters: HttpRequestParamsInterface = {
+      requestType: HttpRequestType.get,
+      url: this.urls.fetchItems,
+      requiresToken: false,
+    }
 
-      // axios options
-      const options: AxiosRequestConfig = {
-        headers: {
-        }
-      }
+    //return httpClient.request<ItemInterface[]>(requestParameters)
 
-      axios
-        .get(url, options)
-        .then((response: AxiosResponse) => {
-          if (!this.mockDelay) {
-            resolve(response.data as ItemInterface[])
-          } else {
+    // if you want to keep simulating the artificail delay, use this
+    if (!this.mockDelay) {
+      return httpClient.request<ItemInterface[]>(requestParameters)
+    } else {
+      return new Promise<ItemInterface[]>((resolve) => {
+        httpClient.request<ItemInterface[]>(requestParameters)
+          .then((data) => {
             setTimeout(() => {
-              resolve(response.data as ItemInterface[])
+              resolve(data)
             }, this.mockDelay)
-          }
-        })
-        .catch((error: any) => {
-            console.error('ItemsApiClient: HttpClient: Get: error', error)
-        })
-    })
+          })
+      })
+    }
   }
 }
