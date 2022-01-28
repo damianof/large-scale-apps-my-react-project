@@ -47,9 +47,10 @@ test('has expected css class when selected is true', () => {
   // the container firstChild is a reference to our <li> element
   const liElement = container.firstChild as HTMLElement
   // Note that you could use testing library prettyDOM function to console.log the lement
-  //console.log(`container.className ${ element?.className }`, prettyDOM(liElement) )
-  // check that the element className attribute has the expected value
-  expect(liElement?.className).toEqual('item selected')
+  // console.log(prettyDOM(liElement))
+  // console.log(`container.className: "${ element?.className }""`)
+  // check that the element class attribute has the expected value
+  expect(liElement).toHaveClass('selected')
 })
 
 test('has expected css class when selected is false', () => {
@@ -63,6 +64,6 @@ test('has expected css class when selected is false', () => {
   const {container} = render(<ItemComponent model={model} onItemSelect={() => {}}/>)
   // the container firstChild is a reference to our <li> element
   const liElement = container.firstChild as HTMLElement
-  // check that the element className attribute has the expected value
-  expect(liElement?.className).toEqual('item')
+  // check that the element class attribute does not contain 'selected'
+  expect(liElement).not.toHaveClass('selected')
 })
