@@ -26,15 +26,8 @@ export type RootStateInterface = ReturnType<typeof globalStore.getState>
 
 // hook that returns our root store instance and will allow us to consume our app store from our components
 export function useAppStore(): RootStoreInterface {
-  const {
-    getters: itemsGetters,
-    actions: itemsActions
-  } = useItemsStore()
-
   return {
-    itemsStore: {
-      getters: itemsGetters,
-      actions: itemsActions
-    }
+    itemsStore: useItemsStore(),
+    // additional domain store modules will be eventually added here
   }
 }
