@@ -1,0 +1,35 @@
+{
+  "name": "my-react-project",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --mode mock",
+    "build": "tsc && vite build --mode live",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "start-local": "vite --mode localapis",
+    "build-beta": "vite --mode beta",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.0",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@types/testing-library__jest-dom": "^5.14.2",
+    "@vitejs/plugin-react": "^1.0.7",
+    "axios": "^0.25.0",
+    "react-redux": "^7.2.6",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  }
+}
