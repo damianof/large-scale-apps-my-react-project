@@ -1,5 +1,7 @@
 // file: src/views/Items.view.tsx
 
+import * as React from 'react'
+
 // import hook useEffect from react
 import { useEffect } from 'react'
 // import a reference to our ItemInterface
