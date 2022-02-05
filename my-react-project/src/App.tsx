@@ -1,7 +1,9 @@
 // file: App.tsx
 
+import * as React from 'react'
+
 // import our app.css
-//import './App.css'
+import './App.css'
 
 // import a reference to Redux Proivder and our globalStore
 import { Provider } from 'react-redux'

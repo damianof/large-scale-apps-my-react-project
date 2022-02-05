@@ -1,6 +1,7 @@
 // file: src/vite-env.d.ts
 
 /// <reference types="vite/client" />
+/// <reference types="react" />
 
 // types for Vite env variables: 
 // (reference: https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript)
