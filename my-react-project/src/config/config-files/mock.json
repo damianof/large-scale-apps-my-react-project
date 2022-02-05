@@ -1,0 +1,18 @@
+{
+  "global": {
+  },
+
+  "httpClient": {
+    "tokenKey": "myapp-token"
+  },
+
+  "apiClient": {
+    "type": "mock"
+  },
+
+  "items": {
+    "apiUrls": {
+      "fetchItems": "/static/data/items.json"
+    }
+  }
+}
