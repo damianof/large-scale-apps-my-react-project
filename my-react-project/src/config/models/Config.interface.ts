@@ -1,6 +1,7 @@
 // file: src/config/models/Config.interface.ts
 
 import { ItemsApiClientUrlsInterface } from '../../models/api-client/items'
+import { LocalizationApiClientUrlsInterface } from '../../models/api-client/localization'
 
 /**
  * @Name ConfigInterface
@@ -18,6 +19,10 @@ export interface ConfigInterface {
 
   apiClient: {
     type: string
+  }
+
+  localization: {
+    apiUrls: LocalizationApiClientUrlsInterface
   }
 
   items: {

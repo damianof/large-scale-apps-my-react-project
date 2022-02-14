@@ -8,6 +8,8 @@ import { ItemComponent } from './children/Item.component'
 // import a reference to our Loader component:
 import { Loader } from '../shared/Loader.component'
 
+import { Header } from './Header'
+
 // ItemsList component
 export class ItemsListComponent extends React.Component<{
   loading: boolean,
@@ -28,7 +30,7 @@ export class ItemsListComponent extends React.Component<{
   
   render(): React.ReactNode {
     const { loading, items } = this.props
-    
+
     let element
     if (loading) {
       // render Loader
@@ -45,7 +47,7 @@ export class ItemsListComponent extends React.Component<{
     }
 
     return <div>
-        <h3>Items:</h3>
+        <Header/>
         {element}
       </div>
   }
