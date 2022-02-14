@@ -12,11 +12,13 @@
     "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.2",
+    "axios": "^0.25.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
-    "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",
@@ -24,10 +26,8 @@
     "@types/react-dom": "^17.0.11",
     "@types/testing-library__jest-dom": "^5.14.2",
     "@vitejs/plugin-react-refresh": "^1.3.6",
-    "axios": "^0.25.0",
     "jest": "^27.4.7",
     "postcss": "^8.4.5",
-    "react-redux": "^7.2.6",
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4",
     "vite": "^2.7.10"
