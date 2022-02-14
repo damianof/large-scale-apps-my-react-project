@@ -10,6 +10,12 @@
     "type": "live"
   },
 
+  "localization": {
+    "apiUrls": {
+      "fetchTranslation": "path/to/your/real/LOCAL/api/and-point"
+    }
+  },
+
   "items": {
     "apiUrls": {
       "fetchItems": "/path/to/your/real/LOCAL/api/and-point"

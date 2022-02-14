@@ -8,7 +8,7 @@ import axios, {
 import { HttpRequestParamsInterface } from './HttpRequestParams.interface'
 import { HttpClientInterface } from './HttpClient.interface'
 import { HttpRequestType } from './HttpRequestType.enum'
-
+import { UrlUtils } from './UrlUtils'
 
 /**
  * @name HttpClientAxios
@@ -35,8 +35,9 @@ export class HttpClientAxios implements HttpClientInterface {
     // use destructuring to extract our parameters into local variables
     const { requestType, url, requiresToken, payload } = parameters
 
-    // TODO: later might add an helper to build the fullUrl with request parameters derived from the payload
-    const fullUrl = url
+    // use helper to build the fullUrl with request parameters derived from the payload
+    const fullUrl = UrlUtils.getFullUrlWithParams(url, payload as any)
+    //console.log('HttpClient: fullUrl: ', fullUrl, payload)
 
     // set axios options
     const options: AxiosRequestConfig = {
@@ -86,8 +87,8 @@ export class HttpClientAxios implements HttpClientInterface {
         }
       }
     } catch (e) {
-      //console.error('HttpClient exception', e)
-      throw Error('HttpClient exception')
+      console.error('HttpClient exception', e)
+      throw Error(`HttpClient exception`)
     }
 
     return result

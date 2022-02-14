@@ -10,6 +10,12 @@
     "type": "mock"
   },
 
+  "localization": {
+    "apiUrls": {
+      "fetchTranslation": "/static/mock-data/localization/[namespace]/[key].json"
+    }
+  },
+
   "items": {
     "apiUrls": {
       "fetchItems": "/static/mock-data/items/items.json"

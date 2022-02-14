@@ -9,6 +9,12 @@
   "apiClient": {
     "type": "live"
   },
+
+  "localization": {
+    "apiUrls": {
+      "fetchTranslation": "path/to/your/real/BETA/api/and-point"
+    }
+  },
   
   "items": {
     "apiUrls": {
