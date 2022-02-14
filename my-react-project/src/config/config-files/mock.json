@@ -12,7 +12,7 @@
 
   "items": {
     "apiUrls": {
-      "fetchItems": "/static/data/items.json"
+      "fetchItems": "/static/mock-data/items/items.json"
     }
   }
 }

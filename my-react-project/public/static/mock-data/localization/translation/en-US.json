@@ -1,0 +1,8 @@
+{
+  "home.welcome": "Welcome: this message is localized in English",
+
+  "navigation.home": "Home",
+  "navigation.about": "About",
+
+  "items.list.header": "My Items"
+}
