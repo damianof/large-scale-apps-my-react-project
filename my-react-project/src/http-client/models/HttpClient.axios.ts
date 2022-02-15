@@ -87,7 +87,7 @@ export class HttpClientAxios implements HttpClientInterface {
         }
       }
     } catch (e) {
-      console.error('HttpClient exception', e)
+      //console.error('HttpClient exception', e)
       throw Error(`HttpClient exception`)
     }
 

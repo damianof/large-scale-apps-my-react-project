@@ -11,7 +11,7 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 }
 
 // test our component click event
-test('httpClient: reqest: should execute get request succesfully', () => {
+test('httpClient: request: should execute get request succesfully', () => {
   jest
     .spyOn(axios, 'get')
     .mockImplementation(async () => Promise.resolve({ data: `request completed: ${ mockRequestParams.url }`}));
@@ -27,10 +27,10 @@ test('httpClient: reqest: should execute get request succesfully', () => {
     })
 })
 
-test('httpClient: reqest: get should throw error on rejection', () => {
+test('httpClient: request: get should throw error on rejection', () => {
   jest
     .spyOn(axios, 'get')
-    .mockImplementation(async () => Promise.reject({ data: `request completed: ${ mockRequestParams.url }`}));
+    .mockImplementation(async () => Promise.reject({ data: `[moq]: request completed: ${ mockRequestParams.url }`}));
 
   httpClient
     .request(mockRequestParams)
