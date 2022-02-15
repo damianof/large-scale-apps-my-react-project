@@ -8,14 +8,14 @@ import './App.css'
 import { Provider } from 'react-redux'
 import { globalStore} from './store'
 
-import { usei18n } from './localization/usei18n'
+import { useLocalization } from './localization/useLocalization'
 
 // import a reference to our ItemsView component
 import ItemsView from './views/Items.view'
 
 // App component:
 function App() {
-  const { t, changeLanguage } = usei18n()
+  const { t, changeLanguage } = useLocalization()
 
   setTimeout(() => {
     changeLanguage('fr-FR')

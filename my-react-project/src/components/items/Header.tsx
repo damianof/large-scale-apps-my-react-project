@@ -1,8 +1,8 @@
 import React from 'react'
-import { usei18n } from '../../localization/usei18n'
+import { useLocalization } from '../../localization/useLocalization'
 
 export function Header() {
-  const { t } = usei18n()
+  const { t } = useLocalization()
 
   return (
     <h3>{ t('items.list.header') }:</h3>
