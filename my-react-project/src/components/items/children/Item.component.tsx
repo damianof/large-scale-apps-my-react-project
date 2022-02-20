@@ -33,9 +33,11 @@ export class ItemComponent extends React.Component<{
   render(): React.ReactNode {
     const { model } = this.props   
 
-    return <li className={this.cssClass} onClick={() => this.handleItemClick(model)}>
-             <div className="selected-indicator">*</div>
-             <div className="name">{model.name}</div>
-           </li>
+    return (
+      <li className={this.cssClass} onClick={() => this.handleItemClick(model)}>
+        <div className="selected-indicator">*</div>
+        <div className="name">{model.name}</div>
+      </li>
+    )
   }
 }

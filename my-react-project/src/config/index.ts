@@ -20,4 +20,4 @@ if (!configFilesMap.has(getAppConfigKey())) {
   throw Error(`Could not find config for VITE_APP_CONFIG key "${ getAppConfigKey() }"`)
 }
 
-export const config: ConfigInterface = configFilesMap.get(getAppConfigKey())
+export const config = configFilesMap.get(getAppConfigKey()) as ConfigInterface
