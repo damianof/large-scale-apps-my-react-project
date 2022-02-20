@@ -46,9 +46,11 @@ export class ItemsListComponent extends React.Component<{
       </ul>
     }
 
-    return <div>
+    return (
+      <div>
         <Header/>
         {element}
       </div>
+    )
   }
 }
