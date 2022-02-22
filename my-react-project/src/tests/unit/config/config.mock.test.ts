@@ -23,7 +23,11 @@ describe('config: mock', () => {
 
   describe('global', () => {
     const section = config.global
-    // tests against the global section eventually go here
+    it('section should have "version" property', () => {
+      expect(section).toHaveProperty('version')
+      expect(typeof section.version).toBe('number')
+      expect(section.version).toBeGreaterThan(0)
+    })
   })
 
   describe('httpClient', () => {
@@ -56,6 +60,59 @@ describe('config: mock', () => {
         // verify that fetchItems url is a string and has a reasonable length
         expect(typeof apiUrls.fetchItems).toBe('string')
         expect(apiUrls.fetchItems.length).toBeGreaterThan(10)
+      })
+    })
+  })
+
+  describe('localization', () => {
+    const section = config.localization
+
+    it('section should have "apiUrls" property', () => {
+      expect(section).toHaveProperty('apiUrls')
+    })
+
+    it('section should have "locales" property', () => {
+      expect(section).toHaveProperty('locales')
+      // verify that locales is an array
+      expect(Array.isArray(section.locales)).toBeTruthy
+    })
+
+    it('section should have "localStorageCache" property', () => {
+      expect(section).toHaveProperty('localStorageCache')
+      // verify that localStorageCache is an object 
+      expect(typeof section.localStorageCache).toBe('object')
+    })
+
+    describe('apiUrls', () => {
+      const apiUrls = section.apiUrls
+
+      it('section should have "fetchTranslation" property', () => {
+        expect(apiUrls).toHaveProperty('fetchTranslation')
+        // verify that fetchTranslation url is a string and has a reasonable length
+        expect(typeof apiUrls.fetchTranslation).toBe('string')
+        expect(apiUrls.fetchTranslation.length).toBeGreaterThan(10)
+      })
+    })
+
+    describe('locales', () => {
+      const locales = section.locales
+
+      it('section should have at least 1 item ', () => {
+        expect(locales.length).toBeGreaterThan(0)
+      })
+    })
+
+    describe('localStorageCache', () => {
+      const localStorageCache = section.localStorageCache
+
+      it('section should have "enabled" property', () => {
+        expect(localStorageCache).toHaveProperty('enabled')
+        expect(typeof localStorageCache.enabled).toBe('boolean')
+      })
+
+      it('section should have "expirationInMinutes" property', () => {
+        expect(localStorageCache).toHaveProperty('expirationInMinutes')
+        expect(typeof localStorageCache.expirationInMinutes).toBe('number')
       })
     })
   })

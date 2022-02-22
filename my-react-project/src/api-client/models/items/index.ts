@@ -1,4 +1,4 @@
-// file: src/models/api-client/items/index.ts
+// file: src/api-client/models/items/index.ts
 
 export * from './ItemsApiClientUrls.interface'
 export * from './ItemsApiClient.interface'
