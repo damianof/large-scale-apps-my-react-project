@@ -14,11 +14,20 @@ test('renders an Item text correctly', () => {
     selected: false
   }
 
-  render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}}/>)
   // using react testing library "screen" to get the element by text
-  const textElement = screen.getByText(/Unit test item 1/i)
+  //const textElement = screen.getByText(/Unit test item 1/i)
+
+  const textElement = screen.getByTestId(`unit-test-item`)
+
   // test by expecting the element to exist in the component
   expect(textElement).toBeInTheDocument()
+
+  const children = textElement.children
+
+  expect(children).toHaveLength(2)
+  expect(children.item(0)?.innerHTML).toEqual('*')
+  expect(children.item(1)?.innerHTML).toEqual('Unit test item 1')
 })
 
 test('renders an Item indicator correctly', () => {
