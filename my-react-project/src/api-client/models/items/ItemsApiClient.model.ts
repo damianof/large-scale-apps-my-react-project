@@ -1,10 +1,10 @@
-// file: src/models/api-client/items/ItemsApiClient.model.ts
+// file: src/api-client/models/items/ItemsApiClient.model.ts
 
 import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client' 
 
 import { ItemsApiClientUrlsInterface } from './ItemsApiClientUrls.interface'
 import { ItemsApiClientInterface } from './ItemsApiClient.interface'
-import { ItemInterface } from '../../items/Item.interface'
+import { ItemInterface } from '../../../models/items/Item.interface'
 
 /**
  * @Name ItemsApiClientModel

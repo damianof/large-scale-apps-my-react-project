@@ -1,4 +1,4 @@
-// file: src/models/api-client/localization/LocalizationApiClientUrls.interface.ts
+// file: src/api-client/models/localization/LocalizationApiClientUrls.interface.ts
 
 /**
  * @Name LocalizationApiClientUrlsInterface

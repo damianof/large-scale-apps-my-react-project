@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-
+// import a reference to our i18n initialization code:
 import './localization/i18n.init'
 
 ReactDOM.render(

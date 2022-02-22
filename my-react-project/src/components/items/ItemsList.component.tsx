@@ -40,7 +40,9 @@ export class ItemsListComponent extends React.Component<{
       element = <ul>
         {
           items.map((item, index) => {
-            return <ItemComponent key={index} model={item} onItemSelect={() => this.handleItemClick(item)}></ItemComponent>
+            return (
+              <ItemComponent key={index} testid={`items.list.item.${ item.id }`} model={item} onItemSelect={() => this.handleItemClick(item)}></ItemComponent>
+            )
           })
         }
       </ul>

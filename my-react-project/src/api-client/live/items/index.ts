@@ -7,7 +7,7 @@ import {
   ItemsApiClientUrlsInterface, 
   ItemsApiClientInterface, 
   ItemsApiClientModel 
-} from '../../../models/api-client/items'
+} from '../../models/items'
 
 // instantiate the ItemsApiClient pointing at the url that returns static json mock data
 const itemsApiClient: ItemsApiClientInterface = new ItemsApiClientModel({ 

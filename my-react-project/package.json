@@ -9,7 +9,8 @@
     "start-local": "vite --mode localapis",
     "build-beta": "vite --mode beta",
     "test": "jest src",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "pretty": "prettier --pattern \"src/**/*.*(ts|tsx|css|scss|html)\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
@@ -28,11 +29,11 @@
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
     "@types/testing-library__jest-dom": "^5.14.2",
-    "@vitejs/plugin-react-refresh": "^1.3.6",
-    "jest": "^27.4.7",
+    "@vitejs/plugin-react": "^1.2.0",
+    "jest": "^27.5.1",
     "postcss": "^8.4.5",
-    "ts-jest": "^27.1.2",
+    "ts-jest": "^27.1.3",
     "typescript": "^4.5.4",
-    "vite": "^2.7.10"
+    "vite": "^2.8.4"
   }
 }

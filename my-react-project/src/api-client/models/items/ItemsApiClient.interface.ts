@@ -1,6 +1,6 @@
-// file: src/models/api-client/items/ItemsApiClient.interface.ts
+// file: src/api-client/models/items/ItemsApiClient.interface.ts
 
-import { ItemInterface } from '../../items/Item.interface'
+import { ItemInterface } from '../../../models/items/Item.interface'
 
 /**
  * @Name ItemsApiClientInterface
