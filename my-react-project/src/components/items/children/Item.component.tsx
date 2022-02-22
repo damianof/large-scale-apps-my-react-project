@@ -6,11 +6,13 @@ import { ItemInterface } from '../../../models/items/Item.interface'
 
 // example using class syntax
 export class ItemComponent extends React.Component<{
+  testid?: string
   model: ItemInterface,
   onItemSelect: (item: ItemInterface) => void
 }> {
   constructor(props: {
-    model: ItemInterface,
+    testid?: string
+    model: ItemInterface
     onItemSelect: (item: ItemInterface) => void
   }) {
     super(props)
@@ -31,10 +33,10 @@ export class ItemComponent extends React.Component<{
   // <div className="name">{model.name} [{String(model.selected)}]</div>
   
   render(): React.ReactNode {
-    const { model } = this.props   
+    const { model, testid } = this.props   
 
     return (
-      <li className={this.cssClass} onClick={() => this.handleItemClick(model)}>
+      <li data-testid={testid || 'not-set'} className={this.cssClass} onClick={() => this.handleItemClick(model)}>
         <div className="selected-indicator">*</div>
         <div className="name">{model.name}</div>
       </li>
