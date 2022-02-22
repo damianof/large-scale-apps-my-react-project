@@ -24,10 +24,9 @@ test('renders an Item text correctly', () => {
   expect(textElement).toBeInTheDocument()
 
   const children = textElement.children
-
   expect(children).toHaveLength(2)
   expect(children.item(0)?.innerHTML).toEqual('*')
-  expect(children.item(1)?.innerHTML).toEqual('Unit test item 1')
+  expect(children.item(1)?.innerHTML).toContain('Unit test item 1')
 })
 
 test('renders an Item indicator correctly', () => {
