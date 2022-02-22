@@ -15,16 +15,34 @@ import ItemsView from './views/Items.view'
 
 // App component:
 function App() {
-  const { t, changeLanguage } = useLocalization()
-
-  setTimeout(() => {
-    changeLanguage('fr-FR')
-  }, 2000)
+  const { 
+    t, 
+    locales,
+    currentLocale,
+    getUserPreferredLocale, 
+    changeLocale, 
+  } = useLocalization()
+  
+  const onLocaleClick = (lcid: string) => {
+    changeLocale(lcid)
+  }
 
   return (
     <Provider store={globalStore}>{/* wrap the root App element with Redux store provider */}
       <div className="App">
-        <h2>{ t('home.welcome') }</h2>
+        <div>
+          {
+            locales.map((item, index) => {
+              return (
+                <label className="cursor-pointer">
+                  <input type="radio" radioGroup={currentLocale} name="locale" value={item.key} checked={ currentLocale === item.key } onClick={() => onLocaleClick(item.key)} />
+                  { t(`locale.selector.${ item.key }`) }
+                </label>
+              )
+            })
+          }
+        </div>
+        <h1>{ t('home.welcome') } [Locale: {currentLocale}]</h1>
         <ItemsView />
       </div>
     </Provider>

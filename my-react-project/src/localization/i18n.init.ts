@@ -2,7 +2,57 @@ import { initReactI18next } from 'react-i18next'
 import i18n, { BackendModule, Services, TOptions, InitOptions, ReadCallback } from 'i18next'
 //import Backend from 'i18next-http-backend'
 
+import { config } from '../config'
 import { apiClient } from '../api-client'
+import { combineReducers } from '@reduxjs/toolkit'
+
+// key will use to save the user preferred locale id
+export const userPreferredLocaleStorageKey = 'user-lcid'
+
+const getLocaleData = async (namespace: string, lcid: string): Promise<Object> => {
+  // try to get it from locale storage
+  // dynamic key we use to cache the actual locale JSON data in the browser local storage
+  const localeStorageKey = `lcid-data-${ lcid }`
+  const localStorageConfig = config.localization.localStorageCache
+  const cacheEntryStr = localStorage.getItem(localeStorageKey) || '{}'
+  let cacheEntry: { appVersion: number, expiresAt: number, json: string } = { appVersion: -1, expiresAt: 0, json: '' }
+
+  if (localStorageConfig.enabled) {
+    try {
+      cacheEntry = JSON.parse(cacheEntryStr)
+    } catch (e) {
+      console.warn('error parsing data', cacheEntryStr)
+    }
+  }
+
+  console.log('cacheEntry?.expiresAt - Date.now()', cacheEntry?.expiresAt - Date.now())
+  console.log('typeof cacheEntry.json', typeof cacheEntry.json)
+
+  // also save the user preference
+  localStorage.setItem(userPreferredLocaleStorageKey, lcid)
+
+  // check if we have cacheEntry and if matches app version and also did not expire
+  if (cacheEntry && cacheEntry.appVersion === config.global.version && cacheEntry.expiresAt - Date.now() > 0) {
+    // set from cache
+    return cacheEntry.json
+  } else {
+    // retrieve data from API end point (or CDN etc)
+    const translationData = await apiClient.localization.fetchTranslation(namespace, lcid)
+
+    // update our cache
+    const dt = new Date()
+    const expiresAt = dt.setMinutes(dt.getMinutes() + Number(localStorageConfig.expirationInMinutes))
+    if (localStorageConfig.enabled) {
+      localStorage.setItem(localeStorageKey, JSON.stringify({
+        appVersion: config.global.version,
+        expiresAt: expiresAt,
+        json: translationData
+      }))
+    }
+
+    return translationData
+  }
+}
 
 // custom backend module that allow us to use our own api client
 const backendModule: BackendModule = {
@@ -16,14 +66,8 @@ const backendModule: BackendModule = {
     console.log('backendModule read', language, namespace)
 
     const key = language
-    apiClient.localization.fetchTranslation(namespace, key)
-      .then((data: any) => {
-        //console.log('translation data', typeof data, data)
-        callback(null, data)
-      })
-      .catch((e) => {
-        console.warn('i18n.init: exception loading translation data')
-      })
+    getLocaleData(namespace, key)
+      .then(obj => callback(null, obj))
   }
 }
 
