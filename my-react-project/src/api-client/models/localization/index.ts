@@ -1,4 +1,4 @@
-// file: src/models/api-client/localization/index.ts
+// file: src/api-client/models/localization/index.ts
 
 export * from './LocalizationApiClientUrls.interface'
 export * from './LocalizationApiClient.interface'

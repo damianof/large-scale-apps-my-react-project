@@ -1,6 +1,6 @@
 // file: src/api-client/live/index.ts
 
-import { ApiClientInterface } from '../../models/api-client/ApiClient.interface'
+import { ApiClientInterface } from '../models/ApiClient.interface'
 import { localizationApiClient } from './localization'
 import { itemsApiClient } from './items'
 

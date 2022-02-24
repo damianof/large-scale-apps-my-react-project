@@ -1,4 +1,4 @@
-// file: src/models/api-client/items/ItemsApiClientUrls.interface.ts
+// file: src/api-client/models/items/ItemsApiClientUrls.interface.ts
 
 /**
  * @Name ItemsApiClientUrlsInterface

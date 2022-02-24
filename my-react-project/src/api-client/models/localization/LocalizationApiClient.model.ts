@@ -1,4 +1,4 @@
-// file: src/models/api-client/localization/LocalizationApiClient.model.ts
+// file: src/api-client/models/localization/LocalizationApiClient.model.ts
 
 import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client' 
 
