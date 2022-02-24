@@ -1,6 +1,9 @@
 import { useTranslation } from 'react-i18next'
 import i18n from 'i18next'
-import { userPreferredLocaleStorageKey } from './i18n.init'
+import {
+  getUserPreferredLocale,
+  setUserPreferredLocale
+ } from './i18n.init'
 import { config } from '../config'
 
 export function useLocalization () {
@@ -10,17 +13,12 @@ export function useLocalization () {
   return {
     t: instance.t,
     currentLocale: i18n.language,
-    changeLocale: i18n.changeLanguage,
+    changeLocale: (lcid: string) => {
+      i18n.changeLanguage(lcid)
+      // also save the user preference
+      setUserPreferredLocale(lcid)
+    },
     locales: availableLocales,
-
-    getUserPreferredLocale() {
-      // try to retrive from local storage if they have one saved
-      const preferredLocale = localStorage.getItem(userPreferredLocaleStorageKey)
-      if (!preferredLocale) {
-        const defaultLocale = availableLocales.find(o => o.isDefault)?.key
-        return defaultLocale
-      }
-      return preferredLocale
-    }
+    getUserPreferredLocale
   }
 }

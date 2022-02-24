@@ -1,19 +1,33 @@
 import { initReactI18next } from 'react-i18next'
 import i18n, { BackendModule, Services, TOptions, InitOptions, ReadCallback } from 'i18next'
-//import Backend from 'i18next-http-backend'
 
 import { config } from '../config'
 import { apiClient } from '../api-client'
-import { combineReducers } from '@reduxjs/toolkit'
+const localStorageConfig = config.localization.localStorageCache
 
 // key will use to save the user preferred locale id
 export const userPreferredLocaleStorageKey = 'user-lcid'
+
+export const getUserPreferredLocale = () => {
+  const availableLocales = config.localization.locales
+
+  // try to retrive from local storage if they have one saved
+  const preferredLocale = localStorage.getItem(userPreferredLocaleStorageKey)
+  if (!preferredLocale) {
+    const defaultLocale = availableLocales.find(o => o.isDefault)?.key
+    return defaultLocale
+  }
+  return preferredLocale
+}
+
+export const setUserPreferredLocale = (lcid: string) => {
+  localStorage.setItem(userPreferredLocaleStorageKey, lcid)
+}
 
 const getLocaleData = async (namespace: string, lcid: string): Promise<Object> => {
   // try to get it from locale storage
   // dynamic key we use to cache the actual locale JSON data in the browser local storage
   const localeStorageKey = `lcid-data-${ lcid }`
-  const localStorageConfig = config.localization.localStorageCache
   const cacheEntryStr = localStorage.getItem(localeStorageKey) || '{}'
   let cacheEntry: { appVersion: number, expiresAt: number, json: string } = { appVersion: -1, expiresAt: 0, json: '' }
 
@@ -27,9 +41,6 @@ const getLocaleData = async (namespace: string, lcid: string): Promise<Object> =
 
   console.log('cacheEntry?.expiresAt - Date.now()', cacheEntry?.expiresAt - Date.now())
   console.log('typeof cacheEntry.json', typeof cacheEntry.json)
-
-  // also save the user preference
-  localStorage.setItem(userPreferredLocaleStorageKey, lcid)
 
   // check if we have cacheEntry and if matches app version and also did not expire
   if (cacheEntry && cacheEntry.appVersion === config.global.version && cacheEntry.expiresAt - Date.now() > 0) {
@@ -71,40 +82,11 @@ const backendModule: BackendModule = {
   }
 }
 
-
-// i18n
-// .use(initReactI18next) // passes i18n down to react-i18next
-// .use(Backend)
-// .init({
-//   lng: 'en-US',
-//   fallbackLng: 'en-US',
-//   keySeparator: false,
-
-//   interpolation: {
-//     escapeValue: false,
-//     /**
-//      * Add interpolation format method to customize the formatting
-//      */
-//     format: (value, format, lng) => {
-//       if (format === 'uppercase') {
-//         return value.toUpperCase();
-//       }
-
-//       return value;
-//     }
-//   },
-//   load: 'currentOnly',
-//   backend: {
-//     loadPath: '/static//mock-dat/localization/{{ns}}/{{lng}}.json'
-//   }
-// });
-
-
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .use(backendModule)
   .init({
-    lng: 'en-US',
+    lng: getUserPreferredLocale(),
     fallbackLng: 'en-US',
     keySeparator: false,
     interpolation: {
