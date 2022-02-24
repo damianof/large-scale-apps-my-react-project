@@ -1,6 +1,6 @@
 // file: src/api-client/index.ts
 
-import { ApiClientInterface } from './models/ApiClient.interface'
+import { ApiClientInterface } from './models'
 import { apiMockClient } from './mock'
 import { apiLiveClient } from './live'
 
