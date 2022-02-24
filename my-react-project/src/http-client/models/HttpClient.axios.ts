@@ -10,6 +10,8 @@ import { HttpClientInterface } from './HttpClient.interface'
 import { HttpRequestType } from './HttpRequestType.enum'
 import { UrlUtils } from './UrlUtils'
 
+import { HttpClientConfigInterface } from '../../config/models/Config.interface'
+
 /**
  * @name HttpClientAxios
  * @description
@@ -17,8 +19,10 @@ import { UrlUtils } from './UrlUtils'
  * and simplify replacement in the future if such npm package would stop being developed or other reasons
  */
 export class HttpClientAxios implements HttpClientInterface {
+  private _httpClientConfig?: HttpClientConfigInterface
 
-  constructor() {
+  constructor(httpClientConfig?: HttpClientConfigInterface) {
+    this._httpClientConfig = httpClientConfig
     // OPTIONAL for now: Add request interceptor to handle errors or other things for each request in one place
   }
 
