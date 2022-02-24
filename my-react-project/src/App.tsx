@@ -33,9 +33,10 @@ function App() {
         <div>
           {
             locales.map((item) => {
+              const radioId = `radio-locale-${item.key}`
               return (
-                <label key={item.key} className="cursor-pointer">
-                  <input type="radio" radioGroup={currentLocale} name="locale" value={item.key} checked={ currentLocale === item.key } onChange={() => onLocaleClick(item.key)} />
+                <label key={item.key} htmlFor={radioId} className="cursor-pointer" onClick={() => onLocaleClick(item.key)}>
+                  <input type="radio" id={radioId} radioGroup={currentLocale} name="locale" value={item.key} checked={ currentLocale === item.key } onChange={() => {}} />
                   { t(`locale.selector.${ item.key }`) }
                 </label>
               )
