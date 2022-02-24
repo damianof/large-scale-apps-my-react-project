@@ -3,7 +3,11 @@
 import {
   ItemsApiClientUrlsInterface,
   LocalizationApiClientUrlsInterface
-} from '../../models/api-client'
+} from '../../api-client/models'
+
+export interface HttpClientConfigInterface {
+  tokenKey: string
+}
 
 /**
  * @Name ConfigInterface
@@ -16,9 +20,7 @@ export interface ConfigInterface {
     version: number
   }
 
-  httpClient: {
-    tokenKey: string
-  }
+  httpClient: HttpClientConfigInterface
 
   apiClient: {
     type: string
