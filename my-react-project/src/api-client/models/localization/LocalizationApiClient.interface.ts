@@ -1,4 +1,4 @@
-// file: src/models/api-client/localization/LocalizationApiClient.interface.ts
+// file: src/api-client/models/localization/LocalizationApiClient.interface.ts
 
 
 /**
