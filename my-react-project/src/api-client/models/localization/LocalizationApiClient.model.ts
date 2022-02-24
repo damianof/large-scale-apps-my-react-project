@@ -35,20 +35,6 @@ import { LocalizationApiClientInterface } from './LocalizationApiClient.interfac
       } as any
     }
 
-    //return httpClient.request<{ [key: string]: string }>(requestParameters)
-
-    // if you want to keep simulating the artificail delay, use this
-    if (!this.mockDelay) {
-      return httpClient.request<{ [key: string]: string }>(requestParameters)
-    } else {
-      return new Promise<{ [key: string]: string }>((resolve) => {
-        httpClient.request<{ [key: string]: string }>(requestParameters)
-          .then((data) => {
-            setTimeout(() => {
-              resolve(data)
-            }, this.mockDelay)
-          })
-      })
-    }
+    return httpClient.request<{ [key: string]: string }>(requestParameters)
   }
 }

@@ -1,6 +1,5 @@
 // file: src/api-client/models/localization/LocalizationApiClient.interface.ts
 
-
 /**
  * @Name LocalizationApiClientInterface
  * @description
