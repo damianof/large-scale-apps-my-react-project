@@ -6,7 +6,6 @@ import { ConfigInterface } from '../../../config/models/Config.interface'
 import { configFilesMap } from '../../../config/config-files-map'
 
 describe('config: mock', () => {
-
   const config: ConfigInterface = configFilesMap.get('mock') as ConfigInterface
 
   it('instance should have "global" section', () => {
@@ -37,7 +36,6 @@ describe('config: mock', () => {
     })
   })
 
-  
   describe('apiClient', () => {
     const section = config.apiClient
     it('section should have "type" property', () => {
@@ -79,7 +77,7 @@ describe('config: mock', () => {
 
     it('section should have "localStorageCache" property', () => {
       expect(section).toHaveProperty('localStorageCache')
-      // verify that localStorageCache is an object 
+      // verify that localStorageCache is an object
       expect(typeof section.localStorageCache).toBe('object')
     })
 
@@ -116,5 +114,4 @@ describe('config: mock', () => {
       })
     })
   })
-
 })

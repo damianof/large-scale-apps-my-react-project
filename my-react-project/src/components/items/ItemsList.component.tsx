@@ -12,22 +12,18 @@ import { Header } from './Header'
 
 // ItemsList component
 export class ItemsListComponent extends React.Component<{
-  loading: boolean,
-  items: ItemInterface[],
+  loading: boolean
+  items: ItemInterface[]
   onItemSelect: (item: ItemInterface) => void
 }> {
-  constructor(props: {
-    loading: boolean,
-    items: ItemInterface[],
-    onItemSelect: (item: ItemInterface) => void
-  }) {
+  constructor(props: { loading: boolean; items: ItemInterface[]; onItemSelect: (item: ItemInterface) => void }) {
     super(props)
   }
 
-  handleItemClick (item: ItemInterface) {
+  handleItemClick(item: ItemInterface) {
     this.props.onItemSelect(item)
   }
-  
+
   render(): React.ReactNode {
     const { loading, items } = this.props
 
@@ -37,20 +33,25 @@ export class ItemsListComponent extends React.Component<{
       element = <Loader />
     } else {
       // render <ul>
-      element = <ul>
-        {
-          items.map((item, index) => {
+      element = (
+        <ul>
+          {items.map((item, index) => {
             return (
-              <ItemComponent key={index} testid={`items.list.item.${ item.id }`} model={item} onItemSelect={() => this.handleItemClick(item)}></ItemComponent>
+              <ItemComponent
+                key={index}
+                testid={`items.list.item.${item.id}`}
+                model={item}
+                onItemSelect={() => this.handleItemClick(item)}
+              ></ItemComponent>
             )
-          })
-        }
-      </ul>
+          })}
+        </ul>
+      )
     }
 
     return (
       <div>
-        <Header/>
+        <Header />
         {element}
       </div>
     )

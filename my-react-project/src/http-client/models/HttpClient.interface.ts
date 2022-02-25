@@ -7,10 +7,10 @@ import { HttpRequestParamsInterface } from './HttpRequestParams.interface'
  * @description
  * Represents our HttpClient.
  */
- export interface HttpClientInterface {
+export interface HttpClientInterface {
   /**
    * @name request
-   * @description 
+   * @description
    * A method that executes different types of http requests (i.e. GET/POST/etc)
    * based on the parameters argument.
    * The type R specify the type of the result returned

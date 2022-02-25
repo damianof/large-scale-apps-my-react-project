@@ -1,6 +1,6 @@
 // file: src/api-client/models/localization/LocalizationApiClient.model.ts
 
-import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client' 
+import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client'
 
 import { LocalizationApiClientUrlsInterface } from './LocalizationApiClientUrls.interface'
 import { LocalizationApiClientInterface } from './LocalizationApiClient.interface'
@@ -10,14 +10,11 @@ import { LocalizationApiClientInterface } from './LocalizationApiClient.interfac
  * @description
  * Implements the LocalizationApiClientInterface interface
  */
- export class LocalizationApiClientModel implements LocalizationApiClientInterface {
+export class LocalizationApiClientModel implements LocalizationApiClientInterface {
   private readonly urls!: LocalizationApiClientUrlsInterface
   private readonly mockDelay: number = 0
 
-  constructor(options: {
-    urls: LocalizationApiClientUrlsInterface,
-    mockDelay?: number
-  }) {
+  constructor(options: { urls: LocalizationApiClientUrlsInterface; mockDelay?: number }) {
     this.urls = options.urls
     if (options.mockDelay) {
       this.mockDelay = options.mockDelay

@@ -14,7 +14,7 @@ test('renders an Item text correctly', () => {
     selected: false
   }
 
-  render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}}/>)
+  render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
   // using react testing library "screen" to get the element by text
   //const textElement = screen.getByText(/Unit test item 1/i)
 
@@ -36,7 +36,7 @@ test('renders an Item indicator correctly', () => {
     selected: false
   }
 
-  render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  render(<ItemComponent model={model} onItemSelect={() => {}} />)
   // using react testing library "screen" to get the element by text
   const indicatorElement = screen.getByText(/\*/i)
   // test by expecting the element to exist in the component
@@ -51,7 +51,7 @@ test('has expected css class when selected is true', () => {
   }
 
   // this time invoke "render" by get a reference to the root container
-  const {container} = render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  const { container } = render(<ItemComponent model={model} onItemSelect={() => {}} />)
   // the container firstChild is a reference to our <li> element
   const liElement = container.firstChild as HTMLElement
   // Note that you could use testing library prettyDOM function to console.log the lement
@@ -69,7 +69,7 @@ test('has expected css class when selected is false', () => {
   }
 
   // this time invoke "render" by get a reference to the root container
-  const {container} = render(<ItemComponent model={model} onItemSelect={() => {}}/>)
+  const { container } = render(<ItemComponent model={model} onItemSelect={() => {}} />)
   // the container firstChild is a reference to our <li> element
   const liElement = container.firstChild as HTMLElement
   // check that the element class attribute does not contain 'selected'

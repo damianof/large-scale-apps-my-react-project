@@ -3,7 +3,7 @@
 /// <reference types="vite/client" />
 /// <reference types="react" />
 
-// types for Vite env variables: 
+// types for Vite env variables:
 // (reference: https://vitejs.dev/guide/env-and-mode.html#intellisense-for-typescript)
 interface ImportMetaEnv {
   readonly VITE_APP_CONFIG: string

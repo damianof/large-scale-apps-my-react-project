@@ -1,7 +1,7 @@
 const UrlUtils = {
   /**
    * @name getFullUrlWithParams
-   * @description Returns the full formatted url for an API end-point 
+   * @description Returns the full formatted url for an API end-point
    * by replacing parameters place holder with the actual values.
    * @param baseUrl The base API end-point witht he params placeholders like {projectId}
    * @param params The request params object with the key/value entries for each parameter
@@ -13,13 +13,11 @@ const UrlUtils = {
       return baseUrl
     }
     let fullUrl = baseUrl
-    keys.forEach(key => {
-      fullUrl = fullUrl.replace(`[${ key }]`, (params[key] || 'null').toString())
+    keys.forEach((key) => {
+      fullUrl = fullUrl.replace(`[${key}]`, (params[key] || 'null').toString())
     })
     return fullUrl
   }
 }
 
-export {
-  UrlUtils
-}
+export { UrlUtils }

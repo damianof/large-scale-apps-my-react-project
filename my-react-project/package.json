@@ -10,7 +10,7 @@
     "build-beta": "vite --mode beta",
     "test": "jest src",
     "test:watch": "npm run test -- --watch",
-    "pretty": "prettier --pattern \"src/**/*.*(ts|tsx|css|scss|html)\""
+    "pretty": "prettier -w \"./src/**/*.*{ts,tsx,css,scss,html}\""
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",

@@ -16,12 +16,12 @@ test('click event invokes onItemSelect handler as expected', () => {
     name: 'Unit test item 1',
     selected: false
   }
-  
+
   // create a spy function with jest.fn()
   const onItemSelect = jest.fn()
 
   // render our component
-  const {container} = render(<ItemComponent model={model} onItemSelect={onItemSelect}/>)
+  const { container } = render(<ItemComponent model={model} onItemSelect={onItemSelect} />)
   // get a reference to the <li> element
   const liElement = container.firstChild as HTMLElement
   // fire click

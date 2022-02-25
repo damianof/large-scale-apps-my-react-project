@@ -14,15 +14,10 @@ import { useAppStore } from '../store'
 // ItemsView component:
 function ItemsView() {
   // get a reference to our itemsStore instanceusing our useAppStore() hook:
-  const {
-    itemsStore
-  } = useAppStore()
+  const { itemsStore } = useAppStore()
 
   // get a reference to the items state data through our itemsStore getters:
-  const { 
-    loading,
-    items
-  } = itemsStore.getters
+  const { loading, items } = itemsStore.getters
 
   // item select event handler
   const onItemSelect = (item: ItemInterface) => {
@@ -33,7 +28,7 @@ function ItemsView() {
   // use React useEffect to invoke our itemsStore loadItems action only once after this component is rendered:
   useEffect(() => {
     itemsStore.actions.loadItems()
-  }, []); // <-- empty array means 'run once'
+  }, []) // <-- empty array means 'run once'
 
   // return our render function containing our ItemslistComponent as we did earlier in the App.tsx file
   return (

@@ -17,15 +17,15 @@ const initialItemsState: ItemsStateInterface = {
 export const itemsStoreSlice = createSlice({
   name: 'itemsStoreSlice',
   initialState: initialItemsState,
-  reducers: { 
+  reducers: {
     // reducers are functions that commit final mutations to the state
     // These will commit final mutation/changes to the state
 
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload
     },
-    
-    setItems: (state, action: PayloadAction<ItemInterface[]>) => { 
+
+    setItems: (state, action: PayloadAction<ItemInterface[]>) => {
       // update our state:
       // set our items
       state.items = action.payload || []
@@ -35,7 +35,7 @@ export const itemsStoreSlice = createSlice({
 
     setItemSelected: (state, action: PayloadAction<ItemInterface>) => {
       const item = action.payload
-      const found = state.items.find(o => o.id === item.id) as ItemInterface
+      const found = state.items.find((o) => o.id === item.id) as ItemInterface
       found.selected = !found.selected
     }
   }

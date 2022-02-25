@@ -15,6 +15,4 @@ if (config.apiClient.type === 'live') {
   apiClient = apiMockClient
 }
 
-export { 
-  apiClient
-}
+export { apiClient }
