@@ -1,6 +1,6 @@
 // file: src/tests/unit/http-client/UrlUtils.getFullUrlWithParams.test.ts
 
-import { UrlUtils, } from '../../http-client'
+import { UrlUtils } from '../../http-client'
 
 // test our component click event
 test('UrlUtils: getFullUrlWithParams: should return fullUrl formatted as expected with one param', () => {
@@ -12,7 +12,6 @@ test('UrlUtils: getFullUrlWithParams: should return fullUrl formatted as expecte
 
   expect('https://unit-test-api/v1/patients/5346782/demographics').toEqual(result)
 })
-
 
 // test our component click event
 test('UrlUtils: getFullUrlWithParams: should return fullUrl formatted as expected with multiple params', () => {
@@ -27,4 +26,3 @@ test('UrlUtils: getFullUrlWithParams: should return fullUrl formatted as expecte
 
   expect('https://unit-test-api/v1/patients/5346782/USA/CA/abcdef12345').toEqual(result)
 })
-

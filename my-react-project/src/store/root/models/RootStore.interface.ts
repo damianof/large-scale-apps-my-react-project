@@ -7,6 +7,6 @@ import { ItemsStoreInterface } from '../../items/models/ItemsStore.interface'
  * @description Interface represents our global state manager
  */
 export interface RootStoreInterface {
-  itemsStore: ItemsStoreInterface,
+  itemsStore: ItemsStoreInterface
   // additional domain store modules will be eventually added here
 }

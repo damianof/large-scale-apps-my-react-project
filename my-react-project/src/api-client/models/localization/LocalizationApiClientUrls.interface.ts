@@ -5,6 +5,6 @@
  * @description
  * Interface for the Localization urls used to avoid hard-coded strings
  */
- export interface LocalizationApiClientUrlsInterface {
+export interface LocalizationApiClientUrlsInterface {
   fetchTranslation: string
 }

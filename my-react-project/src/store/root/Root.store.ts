@@ -13,13 +13,13 @@ import { itemsStoreSlice, useItemsStore } from '../items/'
 // this will be consumed by App.tsx
 export const globalStore = configureStore({
   reducer: {
-     //add reducers here
+    //add reducers here
     items: itemsStoreSlice.reducer
   }
 })
 
 // Infer the `RootStateInterface` type from the store itself (globalStore.getState)
-// thus avoiding to explicitely having to create an additional interface for the 
+// thus avoiding to explicitely having to create an additional interface for the
 export type RootStateInterface = ReturnType<typeof globalStore.getState>
 // Infer the dispatch type from globalStore.dispatch itself
 //export type AppDispatch = typeof globalStore.dispatch
@@ -27,7 +27,7 @@ export type RootStateInterface = ReturnType<typeof globalStore.getState>
 // hook that returns our root store instance and will allow us to consume our app store from our components
 export function useAppStore(): RootStoreInterface {
   return {
-    itemsStore: useItemsStore(),
+    itemsStore: useItemsStore()
     // additional domain store modules will be eventually added here
   }
 }

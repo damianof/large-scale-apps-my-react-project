@@ -3,18 +3,16 @@
 // import a reference to the app config
 import { config } from '../../../config'
 
-import { 
-  LocalizationApiClientUrlsInterface, 
-  LocalizationApiClientInterface, 
-  LocalizationApiClientModel 
+import {
+  LocalizationApiClientUrlsInterface,
+  LocalizationApiClientInterface,
+  LocalizationApiClientModel
 } from '../../models/localization'
 
 // instantiate the LocalizationApiClient pointing at the url that returns static json mock data
-const localizationApiClient: LocalizationApiClientInterface = new LocalizationApiClientModel({ 
+const localizationApiClient: LocalizationApiClientInterface = new LocalizationApiClientModel({
   urls: config.localization.apiUrls
 })
 
 // export our instance
-export {
-  localizationApiClient
-}
+export { localizationApiClient }

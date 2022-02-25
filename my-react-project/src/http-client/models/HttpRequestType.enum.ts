@@ -2,7 +2,7 @@
 
 /**
  * @name HttpRequestType
- * @description 
+ * @description
  * The type of http request we need to execute in our HttpClient request method
  */
 export const enum HttpRequestType {

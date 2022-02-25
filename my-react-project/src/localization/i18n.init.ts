@@ -1,13 +1,7 @@
 // file: src/localization/i18n.init.ts
 
 import { initReactI18next } from 'react-i18next'
-import i18n, { 
-  BackendModule, 
-  Services, 
-  TOptions, 
-  InitOptions, 
-  ReadCallback
-} from 'i18next'
+import i18n, { BackendModule, Services, TOptions, InitOptions, ReadCallback } from 'i18next'
 
 import { config } from '../config'
 import { apiClient } from '../api-client'
@@ -27,7 +21,7 @@ export const getUserPreferredLocale = () => {
   const preferredLocale = localStorage.getItem(userPreferredLocaleStorageKey)
   if (!preferredLocale) {
     // if not, use the default locale from config
-    const defaultLocale = availableLocales.find(o => o.isDefault)?.key
+    const defaultLocale = availableLocales.find((o) => o.isDefault)?.key
     return defaultLocale
   }
   return preferredLocale
@@ -42,11 +36,15 @@ export const setUserPreferredLocale = (lcid: string) => {
 const getLocaleData = async (namespace: string, lcid: string): Promise<Object> => {
   // try to get it from locale storage
   // dynamic key we use to cache the actual locale JSON data in the browser local storage
-  const localeStorageKey = `lcid-data-${ lcid }`
+  const localeStorageKey = `lcid-data-${lcid}`
   // retrieve JSON as string
   const cacheEntryStr = localStorage.getItem(localeStorageKey) || '{}'
   // a variable to hold the parsed JSON data:
-  let cacheEntry: { appVersion: number, expiresAt: number, json: string } = { appVersion: -1, expiresAt: 0, json: '' }
+  let cacheEntry: { appVersion: number; expiresAt: number; json: string } = {
+    appVersion: -1,
+    expiresAt: 0,
+    json: ''
+  }
 
   // if localeStorage is enabled through config, then proced trying parsing the  cacheEntryStr
   if (localStorageConfig.enabled) {
@@ -72,14 +70,17 @@ const getLocaleData = async (namespace: string, lcid: string): Promise<Object> =
     if (localStorageConfig.enabled) {
       // cache the translation data into localStorage
       const dt = new Date()
-      // calculate expiration by adding N minutes as per config expirationInMinutes 
+      // calculate expiration by adding N minutes as per config expirationInMinutes
       const expiresAt = dt.setMinutes(dt.getMinutes() + Number(localStorageConfig.expirationInMinutes))
       // save our data to localStorage
-      localStorage.setItem(localeStorageKey, JSON.stringify({
-        appVersion: config.global.version,
-        expiresAt: expiresAt,
-        json: translationData
-      }))
+      localStorage.setItem(
+        localeStorageKey,
+        JSON.stringify({
+          appVersion: config.global.version,
+          expiresAt: expiresAt,
+          json: translationData
+        })
+      )
     }
 
     // return value we retrieved from API
@@ -90,14 +91,12 @@ const getLocaleData = async (namespace: string, lcid: string): Promise<Object> =
 // custom backend module that allow us to use our own api client
 const backendModule: BackendModule = {
   type: 'backend',
-  init(services: Services, backendOptions: TOptions, i18nextOptions: InitOptions): void {
-  },
+  init(services: Services, backendOptions: TOptions, i18nextOptions: InitOptions): void {},
   read(language: string, namespace: string, callback: ReadCallback): void {
     console.log('backendModule read', language, namespace)
 
     const key = language
-    getLocaleData(namespace, key)
-      .then(obj => callback(null, obj))
+    getLocaleData(namespace, key).then((obj) => callback(null, obj))
   }
 }
 
@@ -114,12 +113,11 @@ i18n
       // Add interpolation format method to customize the formatting
       format: (value, format, lng) => {
         if (format === 'uppercase') {
-          return value.toUpperCase();
+          return value.toUpperCase()
         }
-        return value;
+        return value
       }
     },
     load: 'currentOnly',
-    backend: {
-    }
-  });
+    backend: {}
+  })

@@ -3,7 +3,6 @@
 import { configFilesMap } from '../../../config/config-files-map'
 
 describe('configFilesMap', () => {
-
   it('instance should have "mock" key', () => {
     expect(configFilesMap.has('mock')).toBe(true)
   })

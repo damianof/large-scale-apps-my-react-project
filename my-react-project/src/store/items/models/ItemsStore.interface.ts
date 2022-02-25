@@ -7,8 +7,8 @@ import { ItemInterface } from '../../../models/items/Item.interface'
  * @description Interface represents our Items state actions
  */
 export interface ItemsStoreActionsInterface {
-  loadItems (): Promise<void>
-  toggleItemSelected (item: ItemInterface): Promise<void>
+  loadItems(): Promise<void>
+  toggleItemSelected(item: ItemInterface): Promise<void>
 }
 
 /**

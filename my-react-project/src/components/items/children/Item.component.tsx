@@ -7,18 +7,14 @@ import { ItemInterface } from '../../../models/items/Item.interface'
 // example using class syntax
 export class ItemComponent extends React.Component<{
   testid?: string
-  model: ItemInterface,
+  model: ItemInterface
   onItemSelect: (item: ItemInterface) => void
 }> {
-  constructor(props: {
-    testid?: string
-    model: ItemInterface
-    onItemSelect: (item: ItemInterface) => void
-  }) {
+  constructor(props: { testid?: string; model: ItemInterface; onItemSelect: (item: ItemInterface) => void }) {
     super(props)
   }
 
-  get cssClass () {
+  get cssClass() {
     let css = 'item'
     if (this.props.model?.selected) {
       css += ' selected'
@@ -26,14 +22,14 @@ export class ItemComponent extends React.Component<{
     return css.trim()
   }
 
-  handleItemClick (item: ItemInterface) {
+  handleItemClick(item: ItemInterface) {
     this.props.onItemSelect(item)
   }
 
   // <div className="name">{model.name} [{String(model.selected)}]</div>
-  
+
   render(): React.ReactNode {
-    const { model, testid } = this.props   
+    const { model, testid } = this.props
 
     return (
       <li data-testid={testid || 'not-set'} className={this.cssClass} onClick={() => this.handleItemClick(model)}>

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 
 // import a refence to our itemsStoreSlice
 import { itemsStoreSlice } from './Items.slice'
-// import a reference to our RootStateInterface 
+// import a reference to our RootStateInterface
 import { RootStateInterface } from '../root'
 // import references to our itesms tore and actions interfaces
 import { ItemsStoreInterface, ItemsStoreActionsInterface } from './models'
@@ -22,7 +22,7 @@ export function useItemsStore(): ItemsStoreInterface {
   const commit = useDispatch()
 
   // get a reference to our slice actions (which are really our mutations/commits)
-  const mutations = itemsStoreSlice.actions 
+  const mutations = itemsStoreSlice.actions
 
   // our items store actions implementation:
   const actions: ItemsStoreActionsInterface = {

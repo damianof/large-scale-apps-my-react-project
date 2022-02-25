@@ -1,9 +1,6 @@
 // file: src/http-client/models/HttpClient.axios.ts
 
-import axios, {
-  AxiosRequestConfig,
-  AxiosResponse
-} from 'axios'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { HttpRequestParamsInterface } from './HttpRequestParams.interface'
 import { HttpClientInterface } from './HttpClient.interface'
@@ -45,7 +42,7 @@ export class HttpClientAxios implements HttpClientInterface {
 
     // set axios options
     const options: AxiosRequestConfig = {
-        headers: {}
+      headers: {}
     }
 
     // set headers Authorization
@@ -57,7 +54,7 @@ export class HttpClientAxios implements HttpClientInterface {
     let result!: R
 
     try {
-      switch(requestType) {
+      switch (requestType) {
         // executes a get request:
         case HttpRequestType.get: {
           const response = await axios.get(fullUrl, options)

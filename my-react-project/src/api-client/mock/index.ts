@@ -11,6 +11,4 @@ const apiMockClient: ApiClientInterface = {
 }
 
 // export our instance
-export {
-  apiMockClient
-}
+export { apiMockClient }
