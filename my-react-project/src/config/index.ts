@@ -7,7 +7,7 @@ import { ConfigInterface } from './models/Config.interface'
 // import reference to configFilesMap
 import { configFilesMap } from './config-files-map'
 
-//
+// import reference to our getAppConfigKey helper function
 import { getAppConfigKey } from './utils'
 
 // optional: you can console.log the content of import.meta.env to inspect its value:
