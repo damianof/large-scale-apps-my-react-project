@@ -4,7 +4,6 @@
 import { config } from '../../../config'
 
 import {
-  LocalizationApiClientUrlsInterface,
   LocalizationApiClientInterface,
   LocalizationApiClientModel
 } from '../../models/localization'
