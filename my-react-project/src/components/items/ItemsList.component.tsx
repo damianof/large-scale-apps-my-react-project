@@ -10,13 +10,15 @@ import { Loader } from '../shared/Loader.component'
 
 import { Header } from './Header'
 
-// ItemsList component
-export class ItemsListComponent extends React.Component<{
+type Props = {
   loading: boolean
   items: ItemInterface[]
   onItemSelect: (item: ItemInterface) => void
-}> {
-  constructor(props: { loading: boolean; items: ItemInterface[]; onItemSelect: (item: ItemInterface) => void }) {
+}
+
+// ItemsList component
+export class ItemsListComponent extends React.Component<Props> {
+  constructor(props: Props) {
     super(props)
   }
 
