@@ -7,14 +7,14 @@ import { ConfigInterface } from './models/Config.interface'
 import configMock from './config-files/mock.json'
 import configLocal from './config-files/localapis.json'
 import configBeta from './config-files/beta.json'
-import configLive from './config-files/live.json'
+import configProduction from './config-files/production.json'
 
 // example using strategy pattern:
 // const configFilesMap: { [key: string]: ConfigInterface } = {
 //   mock: configMock,
 //   local: configLocal,
 //   beta: configBeta,
-//   live: configLive,
+//   production: configProduction,
 // }
 // if (!configFilesMap[env]) {
 //   throw Error(`Could not find config for VITE_APP_CONFIG key "${ env }"`)
@@ -26,5 +26,5 @@ export const configFilesMap: Map<string, ConfigInterface> = new Map<string, Conf
   ['mock', configMock],
   ['localapis', configLocal],
   ['beta', configBeta],
-  ['live', configLive]
+  ['production', configProduction]
 ])
