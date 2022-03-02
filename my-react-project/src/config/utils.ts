@@ -1,6 +1,6 @@
 // file: src/config/utils.ts
 
-// helper to read the value of REACT_APP_CONFIG (or VITE_API_CLIENT if using vite)
+// helper to read the value of REACT_APP_CONFIG (or VITE_APP_CONFIG if using vite)
 export function getAppConfigKey() {
   // if using create-react-ap (webpack):
   // let env: string = 'mock'
