@@ -1,8 +1,8 @@
-// file: src/tests/http-client/HttpClient.request.get.test.ts
+// file: src/tests/unit/http-client/HttpClient.request.get.test.ts
 import { vi } from 'vitest'
 
 import axios from 'axios'
-import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../http-client'
+import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../../http-client'
 
 let mockRequestParams: HttpRequestParamsInterface<any> = {
   requestType: HttpRequestType.get,
