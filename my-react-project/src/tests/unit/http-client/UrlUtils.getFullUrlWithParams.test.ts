@@ -1,6 +1,6 @@
 // file: src/tests/unit/http-client/UrlUtils.getFullUrlWithParams.test.ts
 
-import { UrlUtils } from '../../http-client'
+import { UrlUtils } from '../../../http-client'
 
 describe('UrlUtils: getFullUrlWithParams', () => {
 
