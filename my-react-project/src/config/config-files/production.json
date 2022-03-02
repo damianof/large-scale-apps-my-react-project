@@ -13,7 +13,7 @@
 
   "localization": {
     "apiUrls": {
-      "fetchTranslation": "path/to/your/real/LIVE/api/and-point"
+      "fetchTranslation": "path/to/your/real/PRODUCTION/api/and-point"
     },
     "locales": [
       { "key": "en-US", "isDefault": true },
@@ -29,7 +29,7 @@
   
   "items": {
     "apiUrls": {
-      "fetchItems": "/path/to/your/real/LIVE/api/and-point"
+      "fetchItems": "/path/to/your/real/PRODUCTION/api/and-point"
     }
   }
 }

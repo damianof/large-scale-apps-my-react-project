@@ -1,77 +1,93 @@
 // file: Item.rendering.test.tsx
-
-import { render, screen, prettyDOM } from '@testing-library/react'
+// @vitest-environment jsdom
+import { render, screen } from '../../../test-utils'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 
-test('renders an Item text correctly', () => {
-  const model: ItemInterface = {
-    id: 1,
-    name: 'Unit test item 1',
-    selected: false
-  }
+describe('Item.component: rendering' , () => {
 
-  render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
-  // using react testing library "screen" to get the element by text
-  //const textElement = screen.getByText(/Unit test item 1/i)
+  it('renders an Item text correctly', () => {
+    const model: ItemInterface = {
+      id: 1,
+      name: 'Unit test item 1',
+      selected: false
+    }
 
-  const textElement = screen.getByTestId(`unit-test-item`)
+    // render component
+    render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
+    // get element reference by testid
+    const liElement = screen.getByTestId(`unit-test-item`)
 
-  // test by expecting the element to exist in the component
-  expect(textElement).toBeInTheDocument()
+    // test
+    expect(liElement).not.toBeNull()
 
-  const children = textElement.children
-  expect(children).toHaveLength(2)
-  expect(children.item(0)?.innerHTML).toEqual('*')
-  expect(children.item(1)?.innerHTML).toContain('Unit test item 1')
-})
+    // get element children
+    const children = liElement.children
+    expect(children).toHaveLength(2)
+    expect(children.item(1)?.innerHTML).toContain('Unit test item 1')
+  })
 
-test('renders an Item indicator correctly', () => {
-  const model: ItemInterface = {
-    id: 1,
-    name: 'Unit test item 2',
-    selected: false
-  }
+  it('renders an Item indicator correctly', () => {
+    const model: ItemInterface = {
+      id: 1,
+      name: 'Unit test item 2',
+      selected: false
+    }
 
-  render(<ItemComponent model={model} onItemSelect={() => {}} />)
-  // using react testing library "screen" to get the element by text
-  const indicatorElement = screen.getByText(/\*/i)
-  // test by expecting the element to exist in the component
-  expect(indicatorElement).toBeInTheDocument()
-})
+    // render component
+    render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
+    // get element reference by testid
+    const liElement = screen.getByTestId(`unit-test-item`)
 
-test('has expected css class when selected is true', () => {
-  const model: ItemInterface = {
-    id: 1,
-    name: 'Unit test item 3',
-    selected: true
-  }
+    // test
+    expect(liElement).not.toBeNull()
 
-  // this time invoke "render" by get a reference to the root container
-  const { container } = render(<ItemComponent model={model} onItemSelect={() => {}} />)
-  // the container firstChild is a reference to our <li> element
-  const liElement = container.firstChild as HTMLElement
-  // Note that you could use testing library prettyDOM function to console.log the lement
-  // console.log(prettyDOM(liElement))
-  // console.log(`container.className: "${ element?.className }""`)
-  // check that the element class attribute has the expected value
-  expect(liElement).toHaveClass('selected')
-})
+    // get element children
+    const children = liElement.children
+    expect(children).toHaveLength(2)
+    expect(children.item(0)?.innerHTML).toEqual('*')
+  })
 
-test('has expected css class when selected is false', () => {
-  const model: ItemInterface = {
-    id: 1,
-    name: 'Unit test item 3',
-    selected: false
-  }
+  it('has expected css class when selected is true', () => {
+    const model: ItemInterface = {
+      id: 1,
+      name: 'Unit test item 3',
+      selected: true
+    }
 
-  // this time invoke "render" by get a reference to the root container
-  const { container } = render(<ItemComponent model={model} onItemSelect={() => {}} />)
-  // the container firstChild is a reference to our <li> element
-  const liElement = container.firstChild as HTMLElement
-  // check that the element class attribute does not contain 'selected'
-  expect(liElement).not.toHaveClass('selected')
+
+    // render component
+    render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
+    // get element reference by testid
+    const liElement = screen.getByTestId(`unit-test-item`)
+
+    // test
+    expect(liElement).not.toBeNull()
+
+    // check that the element class attribute has the expected value
+    expect(liElement.className).toContain('selected')
+  })
+
+  it('has expected css class when selected is false', () => {
+    const model: ItemInterface = {
+      id: 1,
+      name: 'Unit test item 3',
+      selected: false
+    }
+
+    // render component
+    render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
+    // get element reference by testid
+    const liElement = screen.getByTestId(`unit-test-item`)
+
+    // test
+    expect(liElement).not.toBeNull()
+    
+    // check that the element class attribute does not contain 'selected'
+    expect(liElement.className).not.toContain('selected')
+  })
+
 })

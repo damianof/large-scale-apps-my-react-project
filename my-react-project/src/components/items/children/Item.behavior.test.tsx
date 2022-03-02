@@ -1,31 +1,34 @@
 // file: Item.behavior.test.tsx
-
-// NOTE: jest-dom adds handy assertions to Jest and it is recommended, but not required.
-import '@testing-library/jest-dom'
-import { render, fireEvent, prettyDOM } from '@testing-library/react'
+// @vitest-environment jsdom
+import { render, screen, fireEvent } from '../../../test-utils'
+import { vi } from 'vitest'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 
-// test our component click event
-test('click event invokes onItemSelect handler as expected', () => {
-  const model: ItemInterface = {
-    id: 1,
-    name: 'Unit test item 1',
-    selected: false
-  }
+describe('Item.component: behavior' , () => {
 
-  // create a spy function with jest.fn()
-  const onItemSelect = jest.fn()
+  // test our component click event
+  it('click event invokes onItemSelect handler as expected', () => {
+    const model: ItemInterface = {
+      id: 1,
+      name: 'Unit test item 1',
+      selected: false
+    }
 
-  // render our component
-  const { container } = render(<ItemComponent model={model} onItemSelect={onItemSelect} />)
-  // get a reference to the <li> element
-  const liElement = container.firstChild as HTMLElement
-  // fire click
-  fireEvent.click(liElement)
-  // check test result
-  expect(onItemSelect).toHaveBeenCalledTimes(1)
+    // create a spy function with vi.fn()
+    const onItemSelect = vi.fn()
+
+    // render our component
+    const { container } = render(<ItemComponent model={model} onItemSelect={onItemSelect} />)
+    // get a reference to the <li> element
+    const liElement = container.firstChild as HTMLElement
+    // fire click
+    fireEvent.click(liElement)
+    // check test result
+    expect(onItemSelect).toHaveBeenCalledTimes(1)
+  })
+
 })
