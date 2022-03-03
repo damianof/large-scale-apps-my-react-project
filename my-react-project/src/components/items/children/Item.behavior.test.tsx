@@ -8,8 +8,7 @@ import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 
-describe('Item.component: behavior' , () => {
-
+describe('Item.component: behavior', () => {
   // test our component click event
   it('click event invokes onItemSelect handler as expected', () => {
     const model: ItemInterface = {
@@ -30,5 +29,4 @@ describe('Item.component: behavior' , () => {
     // check test result
     expect(onItemSelect).toHaveBeenCalledTimes(1)
   })
-
 })

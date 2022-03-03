@@ -11,11 +11,10 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 }
 
 describe('HttpClient: request: get', () => {
-
   it('should execute get request succesfully', () => {
-    vi
-      .spyOn(axios, 'get')
-      .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
+    vi.spyOn(axios, 'get').mockImplementation(async () =>
+      Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
+    )
 
     httpClient
       .request(mockRequestParams)
@@ -40,7 +39,4 @@ describe('HttpClient: request: get', () => {
       expect(error.toString()).toEqual('Error: HttpClient exception')
     })
   })
-  
 })
-
-
