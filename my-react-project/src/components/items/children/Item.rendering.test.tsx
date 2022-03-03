@@ -7,8 +7,7 @@ import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 
-describe('Item.component: rendering' , () => {
-
+describe('Item.component: rendering', () => {
   it('renders an Item text correctly', () => {
     const model: ItemInterface = {
       id: 1,
@@ -58,7 +57,6 @@ describe('Item.component: rendering' , () => {
       selected: true
     }
 
-
     // render component
     render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
     // get element reference by testid
@@ -85,9 +83,8 @@ describe('Item.component: rendering' , () => {
 
     // test
     expect(liElement).not.toBeNull()
-    
+
     // check that the element class attribute does not contain 'selected'
     expect(liElement.className).not.toContain('selected')
   })
-
 })

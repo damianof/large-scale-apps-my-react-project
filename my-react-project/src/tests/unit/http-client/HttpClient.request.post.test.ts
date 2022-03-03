@@ -14,11 +14,10 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 type P = typeof mockRequestParams.payload
 
 describe('HttpClient: request: post', () => {
-
   it('should execute post request succesfully', () => {
-    vi
-      .spyOn(axios, 'post')
-      .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
+    vi.spyOn(axios, 'post').mockImplementation(async () =>
+      Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
+    )
 
     httpClient
       .request<string, P>(mockRequestParams)
@@ -30,5 +29,4 @@ describe('HttpClient: request: post', () => {
         console.info('HttpClient.request.post.test.ts: HttpClient.request(post) error', error)
       })
   })
-
 })
