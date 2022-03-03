@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --mode mock",
-    "build": "tsc && vite build --mode live",
+    "build": "tsc && vite build --mode production",
+    "build-beta": "tsc && vite build --mode beta",
+    "build-local": "tsc && vite build --mode localapis",
+    "build-mock": "tsc && vite build --mode mock",
     "preview": "vite preview",
     "start": "npm run dev",
     "start-local": "vite --mode localapis",

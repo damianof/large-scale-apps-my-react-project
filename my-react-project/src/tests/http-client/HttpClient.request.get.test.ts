@@ -1,4 +1,4 @@
-// file: src/tests/http-client/HttpClient.request.get.test.ts
+// file: src/tests/unit/http-client/HttpClient.request.get.test.ts
 
 import axios from 'axios'
 import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../http-client'
@@ -9,32 +9,35 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
   requiresToken: false
 }
 
-// test our component click event
-test('httpClient: request: should execute get request succesfully', () => {
-  jest
-    .spyOn(axios, 'get')
-    .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
+describe('HttpClient: request: get', () => {
 
-  httpClient
-    .request(mockRequestParams)
-    .then((response) => {
-      //console.debug('response:', response)
-      expect(response).toEqual(`request completed: ${mockRequestParams.url}`)
-    })
-    .catch((error) => {
-      console.info('HttpClient.request.get.test.ts: HttpClient.request(get) error', error)
-    })
-})
+  it('should execute get request succesfully', () => {
+    jest
+      .spyOn(axios, 'get')
+      .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
 
-test('httpClient: request: get should throw error on rejection', () => {
-  jest.spyOn(axios, 'get').mockImplementation(async () =>
-    Promise.reject({
-      data: `[moq]: request completed: ${mockRequestParams.url}`
-    })
-  )
-
-  httpClient.request(mockRequestParams).catch((error) => {
-    expect(error).toBeDefined()
-    expect(error.toString()).toEqual('Error: HttpClient exception')
+    httpClient
+      .request(mockRequestParams)
+      .then((response) => {
+        //console.debug('response:', response)
+        expect(response).toEqual(`request completed: ${mockRequestParams.url}`)
+      })
+      .catch((error) => {
+        console.info('HttpClient.request.get.test.ts: HttpClient.request(get) error', error)
+      })
   })
+
+  it(' get should throw error on rejection', () => {
+    jest.spyOn(axios, 'get').mockImplementation(async () =>
+      Promise.reject({
+        data: `[moq]: request completed: ${mockRequestParams.url}`
+      })
+    )
+
+    httpClient.request(mockRequestParams).catch((error) => {
+      expect(error).toBeDefined()
+      expect(error.toString()).toEqual('Error: HttpClient exception')
+    })
+  })
+  
 })
