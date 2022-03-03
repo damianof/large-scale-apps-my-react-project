@@ -1,16 +1,17 @@
 // file: Item.behavior.test.tsx
-
 // NOTE: jest-dom adds handy assertions to Jest and it is recommended, but not required.
 import '@testing-library/jest-dom'
-import { render, fireEvent, prettyDOM } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 
+describe('Item.component: behavior' , () => {
+
 // test our component click event
-test('click event invokes onItemSelect handler as expected', () => {
+  it('click event invokes onItemSelect handler as expected', () => {
   const model: ItemInterface = {
     id: 1,
     name: 'Unit test item 1',
@@ -28,4 +29,6 @@ test('click event invokes onItemSelect handler as expected', () => {
   fireEvent.click(liElement)
   // check test result
   expect(onItemSelect).toHaveBeenCalledTimes(1)
+})
+
 })

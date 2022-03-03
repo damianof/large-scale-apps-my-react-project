@@ -15,7 +15,7 @@ describe('configFilesMap', () => {
     expect(configFilesMap.has('beta')).toBe(true)
   })
 
-  it('instance should have "live" key', () => {
-    expect(configFilesMap.has('live')).toBe(true)
+  it('instance should have "production" key', () => {
+    expect(configFilesMap.has('production')).toBe(true)
   })
 })
