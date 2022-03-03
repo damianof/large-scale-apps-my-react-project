@@ -3,7 +3,6 @@
 import { UrlUtils } from '../../http-client'
 
 describe('UrlUtils: getFullUrlWithParams', () => {
-
   it('should return fullUrl formatted as expected with one param', () => {
     const baseUrl = 'https://unit-test-api/v1/patients/[organizationId]/demographics'
     const params = {
@@ -26,5 +25,4 @@ describe('UrlUtils: getFullUrlWithParams', () => {
 
     expect('https://unit-test-api/v1/patients/5346782/USA/CA/abcdef12345').toEqual(result)
   })
-
 })
