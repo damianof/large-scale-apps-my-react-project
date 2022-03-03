@@ -13,7 +13,6 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 type P = typeof mockRequestParams.payload
 
 describe('HttpClient: request: post', () => {
-
   it('should execute post request succesfully', () => {
     jest
       .spyOn(axios, 'post')
@@ -29,5 +28,4 @@ describe('HttpClient: request: post', () => {
         console.info('HttpClient.request.post.test.ts: HttpClient.request(post) error', error)
       })
   })
-
 })

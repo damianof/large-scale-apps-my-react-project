@@ -10,7 +10,6 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 }
 
 describe('HttpClient: request: get', () => {
-
   it('should execute get request succesfully', () => {
     jest
       .spyOn(axios, 'get')
@@ -39,5 +38,4 @@ describe('HttpClient: request: get', () => {
       expect(error.toString()).toEqual('Error: HttpClient exception')
     })
   })
-  
 })

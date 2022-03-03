@@ -29,7 +29,7 @@ function App() {
     <Provider store={globalStore}>
       {/* wrap the root App element with Redux store provider */}
       <div className="App">
-        <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t}/>
+        <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t} />
         <h1>{t('home.welcome')}</h1> {/* update this to use the t function to translate our welcome message */}
         <ItemsView />
       </div>
