@@ -1,6 +1,4 @@
 // file: src/tests/unit/http-client/HttpClient.request.get.test.ts
-import { vi } from 'vitest'
-
 import axios from 'axios'
 import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../../http-client'
 
@@ -12,7 +10,7 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 
 describe('HttpClient: request: get', () => {
   it('should execute get request succesfully', () => {
-    vi.spyOn(axios, 'get').mockImplementation(async () =>
+    vitest.spyOn(axios, 'get').mockImplementation(async () =>
       Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
     )
 
@@ -28,7 +26,7 @@ describe('HttpClient: request: get', () => {
   })
 
   it(' get should throw error on rejection', () => {
-    vi.spyOn(axios, 'get').mockImplementation(async () =>
+    vitest.spyOn(axios, 'get').mockImplementation(async () =>
       Promise.reject({
         data: `[moq]: request completed: ${mockRequestParams.url}`
       })
