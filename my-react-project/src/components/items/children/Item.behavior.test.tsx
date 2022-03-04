@@ -1,7 +1,8 @@
-// file: Item.behavior.test.tsx
+// file: src/components/items/children/Item.behavior.test.tsx
+// directive to instruct vitest to use the jsdom environment:
 // @vitest-environment jsdom
-import { render, screen, fireEvent } from '../../../test-utils'
-import { vi } from 'vitest'
+// import references to what we need from our test-utils:
+import { render, fireEvent } from '../../../test-utils'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
@@ -17,8 +18,8 @@ describe('Item.component: behavior', () => {
       selected: false
     }
 
-    // create a spy function with vi.fn()
-    const onItemSelect = vi.fn()
+    // create a spy function with vitest.fn()
+    const onItemSelect = vitest.fn()
 
     // render our component
     const { container } = render(<ItemComponent model={model} onItemSelect={onItemSelect} />)

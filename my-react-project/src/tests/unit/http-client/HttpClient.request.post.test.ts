@@ -1,5 +1,4 @@
 // file: src/tests/unit/http-client/HttpClient.request.post.test.ts
-import { vi } from 'vitest'
 
 import axios from 'axios'
 import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../../http-client'
@@ -15,7 +14,7 @@ type P = typeof mockRequestParams.payload
 
 describe('HttpClient: request: post', () => {
   it('should execute post request succesfully', () => {
-    vi.spyOn(axios, 'post').mockImplementation(async () =>
+    vitest.spyOn(axios, 'post').mockImplementation(async () =>
       Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
     )
 
