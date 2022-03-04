@@ -1,5 +1,8 @@
-// file: Item.rendering.test.tsx
-import { render, screen } from '@testing-library/react'
+// file: src/components/items/children/Item.rendering.test.tsx
+// directive to instruct vitest to use the jsdom environment:
+// @vitest-environment jsdom
+// import references to what we need from our test-utils:
+import { render, screen } from '../../../test-utils'
 
 // import reference to our interface
 import { ItemInterface } from '../../../models/items/Item.interface'
