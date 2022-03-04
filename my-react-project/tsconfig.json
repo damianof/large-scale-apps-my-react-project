@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client", "jest", "testing-library__jest-dom"],
+    "types": [
+      "react",
+      "vite/client", 
+      "vitest/globals"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
