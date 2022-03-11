@@ -1,5 +1,4 @@
 // file: src/views/Items.view.tsx
-
 import * as React from 'react'
 
 // import hook useEffect from react
@@ -21,7 +20,6 @@ function ItemsView() {
 
   // item select event handler
   const onItemSelect = (item: ItemInterface) => {
-    console.log('ItemsView: onItemSelect', item)
     itemsStore.actions.toggleItemSelected(item)
   }
 
