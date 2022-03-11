@@ -4,7 +4,7 @@ import { ApiClientInterface } from './models'
 import { apiMockClient } from './mock'
 import { apiLiveClient } from './live'
 
-import { config } from '../config'
+import { config } from '@/config'
 console.log(`config.apiClient.type "${config.apiClient.type}"`)
 
 // return either the live or the mock client

@@ -2,10 +2,10 @@
 // directive to instruct vitest to use the jsdom environment:
 // @vitest-environment jsdom
 // import references to what we need from our test-utils:
-import { render, screen } from '../../../test-utils'
+import { render, screen } from '@/test-utils'
 
 // import reference to our interface
-import { ItemInterface } from '../../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './Item.component'
 

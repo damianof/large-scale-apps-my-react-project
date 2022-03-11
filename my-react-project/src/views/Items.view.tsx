@@ -4,11 +4,11 @@ import * as React from 'react'
 // import hook useEffect from react
 import { useEffect } from 'react'
 // import a reference to our ItemInterface
-import { ItemInterface } from '../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 // import a reference to your ItemsList component:
-import { ItemsListComponent } from '../components/items/ItemsList.component'
+import { ItemsListComponent } from '@/components/items/ItemsList.component'
 // import our useAppStore hook from our store
-import { useAppStore } from '../store'
+import { useAppStore } from '@/store'
 
 // ItemsView component:
 function ItemsView() {
