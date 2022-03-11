@@ -1,6 +1,6 @@
 // file: src/tests/unit/config/config-files-map.test.ts
 
-import { configFilesMap } from '../../../config/config-files-map'
+import { configFilesMap } from '@/config/config-files-map'
 
 describe('configFilesMap', () => {
   it('instance should have "mock" key', () => {

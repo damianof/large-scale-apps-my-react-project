@@ -5,15 +5,15 @@ import { useSelector } from 'react-redux'
 import { Dispatch } from 'react'
 
 // import a reference to our RootStateInterface
-import { RootStateInterface } from '../root'
+import { RootStateInterface } from '@/store/root'
 // import a reference to our ItemInterface
-import { ItemInterface } from '../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 
 // import a refence to our itemsStoreSlice
 import { itemsStoreSlice } from './Items.slice'
 
 // import a reference to our apiClient instance
-import { apiClient } from '../../api-client'
+import { apiClient } from '@/api-client'
 
 /**
  * @name useItemsActions
