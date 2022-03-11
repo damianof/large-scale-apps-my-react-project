@@ -1,6 +1,6 @@
 // file: src/store/root/models/RootStore.interface.ts
 
-import { ItemsStoreInterface } from '../../items'
+import { ItemsStoreInterface } from '@/store/items'
 // additional domain store interfaces will be imported here as needed
 
 /**

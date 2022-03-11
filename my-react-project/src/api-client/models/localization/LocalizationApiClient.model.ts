@@ -1,6 +1,6 @@
 // file: src/api-client/models/localization/LocalizationApiClient.model.ts
 
-import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '../../../http-client'
+import { httpClient, HttpRequestParamsInterface, HttpRequestType } from '@/http-client'
 
 import { LocalizationApiClientUrlsInterface } from './LocalizationApiClientUrls.interface'
 import { LocalizationApiClientInterface } from './LocalizationApiClient.interface'

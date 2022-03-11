@@ -2,11 +2,11 @@
 
 import React from 'react'
 // import reference to our interface
-import { ItemInterface } from '../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 // import reference to your Item component:
 import { ItemComponent } from './children/Item.component'
 // import a reference to our Loader component:
-import { Loader } from '../shared/Loader.component'
+import { Loader } from '@/components/shared/Loader.component'
 
 import { Header } from './Header'
 
