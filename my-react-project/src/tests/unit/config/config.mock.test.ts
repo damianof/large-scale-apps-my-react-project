@@ -1,9 +1,9 @@
 // file: src/tests/unit/config/config.mock.test.ts
 
 // import the Config interface
-import { ConfigInterface } from '../../../config/models/Config.interface'
+import { ConfigInterface } from '@/config/models/Config.interface'
 // import a reference to the confiFilesMap
-import { configFilesMap } from '../../../config/config-files-map'
+import { configFilesMap } from '@/config/config-files-map'
 
 describe('config: mock', () => {
   const config: ConfigInterface = configFilesMap.get('mock') as ConfigInterface

@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 // import out items state interface, and the item interface
 import { ItemsStateInterface } from './models'
-import { ItemInterface } from '../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 
 // create an object that represents our initial items state
 const initialItemsState: ItemsStateInterface = {

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux'
 import { RootStoreInterface } from './models'
 
 // import our modules slices and actions/getters
-import { itemsStoreSlice, useItemsActions, useItemsGetters } from '../items/'
+import { itemsStoreSlice, useItemsActions, useItemsGetters } from '@/store/items/'
 
 // configure root redux store for the whole app.
 // this will be consumed by App.tsx
