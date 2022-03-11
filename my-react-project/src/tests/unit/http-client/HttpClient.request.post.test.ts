@@ -1,7 +1,7 @@
 // file: src/tests/unit/http-client/HttpClient.request.post.test.ts
 
 import axios from 'axios'
-import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '../../../http-client'
+import { httpClient, HttpRequestType, HttpRequestParamsInterface } from '@/http-client'
 
 let mockRequestParams: HttpRequestParamsInterface<any> = {
   requestType: HttpRequestType.post,

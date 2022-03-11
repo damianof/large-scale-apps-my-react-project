@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 // import reference to our interface
-import { ItemInterface } from '../../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 
 // example using class syntax
 export class ItemComponent extends React.Component<{
