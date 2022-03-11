@@ -4,9 +4,9 @@ import * as React from 'react'
 // import our app.css
 import './App.css'
 
-// import a reference to Redux Proivder and our globalStore
+// import a reference to Redux Provider and our rootStore
 import { Provider } from 'react-redux'
-import { globalStore } from './store'
+import { rootStore } from './store'
 // import a reference to useLocalization
 import { useLocalization } from './localization/useLocalization'
 
@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <Provider store={globalStore}>
+    <Provider store={rootStore}>
       {/* wrap the root App element with Redux store provider */}
       <div className="App">
         <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t} />

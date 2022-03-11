@@ -1,12 +1,13 @@
-// file: RootStore.interface.ts
+// file: src/store/root/models/RootStore.interface.ts
 
-import { ItemsStoreInterface } from '../../items/models/ItemsStore.interface'
+import { ItemsStoreInterface } from '../../items'
+// additional domain store interfaces will be imported here as needed
 
 /**
- * @name RootStateInterface
- * @description Interface represents our global state manager
+ * @name RootStoreInterface
+ * @description Interface represents our global state manager (store)
  */
 export interface RootStoreInterface {
   itemsStore: ItemsStoreInterface
-  // additional domain store modules will be eventually added here
+  // additional domain store modules will be added here as needed
 }
