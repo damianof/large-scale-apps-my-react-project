@@ -2,7 +2,7 @@
 
 import { HttpClientInterface } from './models/HttpClient.interface'
 import { HttpClientAxios } from './models/HttpClient.axios'
-//import { config } from '../config'
+//import { config } from '@/config'
 
 // export instance of HttpClientInterface
 //export const httpClient: HttpClientInterface = new HttpClientAxios(config.httpClient)

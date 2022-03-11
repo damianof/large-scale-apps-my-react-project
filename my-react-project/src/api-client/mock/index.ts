@@ -1,6 +1,7 @@
 // file: src/api-client/mock/index.ts
 
-import { ApiClientInterface } from '../models/ApiClient.interface'
+import { ApiClientInterface } from '../models'
+// import module instances
 import { localizationApiClient } from './localization'
 import { itemsApiClient } from './items'
 

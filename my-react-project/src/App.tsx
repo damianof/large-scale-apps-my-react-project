@@ -6,14 +6,14 @@ import './App.css'
 
 // import a reference to Redux Provider and our rootStore
 import { Provider } from 'react-redux'
-import { rootStore } from './store'
+import { rootStore } from '@/store'
 // import a reference to useLocalization
-import { useLocalization } from './localization/useLocalization'
+import { useLocalization } from '@/localization/useLocalization'
 
 // import a reference to our ItemsView component
-import ItemsView from './views/Items.view'
+import ItemsView from '@/views/Items.view'
 
-import { LocaleSelector } from './components/shared/LocaleSelector.component'
+import { LocaleSelector } from '@/components/shared/LocaleSelector.component'
 
 // App component:
 function App() {

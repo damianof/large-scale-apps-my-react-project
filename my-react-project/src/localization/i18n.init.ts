@@ -3,8 +3,8 @@
 import { initReactI18next } from 'react-i18next'
 import i18n, { BackendModule, Services, TOptions, InitOptions, ReadCallback } from 'i18next'
 
-import { config } from '../config'
-import { apiClient } from '../api-client'
+import { config } from '@/config'
+import { apiClient } from '@/api-client'
 
 // get reference to out localization config
 const localStorageConfig = config.localization.localStorageCache

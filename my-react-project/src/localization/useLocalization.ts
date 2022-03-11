@@ -2,7 +2,7 @@
 
 import { useTranslation } from 'react-i18next'
 import i18n from 'i18next'
-import { config } from '../config'
+import { config } from '@/config'
 
 // import references to our localeStorage helpers:
 import { getUserPreferredLocale, setUserPreferredLocale } from './i18n.init'

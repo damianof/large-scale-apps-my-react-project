@@ -7,7 +7,7 @@ import { HttpClientInterface } from './HttpClient.interface'
 import { HttpRequestType } from './HttpRequestType.enum'
 import { UrlUtils } from './UrlUtils'
 
-import { HttpClientConfigInterface } from '../../config/models/Config.interface'
+import { HttpClientConfigInterface } from '@/config/models/Config.interface'
 
 /**
  * @name HttpClientAxios

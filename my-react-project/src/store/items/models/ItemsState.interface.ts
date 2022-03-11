@@ -1,6 +1,6 @@
 // file: ItemsState.interface.ts
 
-import { ItemInterface } from '../../../models/items/Item.interface'
+import { ItemInterface } from '@/models/items/Item.interface'
 
 /**
  * @name ItemsStateInterface
