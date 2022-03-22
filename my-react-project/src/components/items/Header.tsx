@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocalization } from '@/localization/useLocalization'
+import { useLocalization } from '@/localization'
 
 export function Header() {
   const { t } = useLocalization()
