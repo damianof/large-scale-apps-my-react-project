@@ -59,7 +59,7 @@ export function useItemsGetters() {
  * @name ItemsStoreInterface
  * @description Interface represents our Items store module
  */
- export interface ItemsStoreInterface {
+export interface ItemsStoreInterface {
   actions: ReturnType<typeof useItemsActions> // use TS type inference
   getters: ReturnType<typeof useItemsGetters> // use TS type inference
 }

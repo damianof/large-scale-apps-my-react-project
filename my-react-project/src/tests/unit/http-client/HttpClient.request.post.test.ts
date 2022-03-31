@@ -14,9 +14,9 @@ type P = typeof mockRequestParams.payload
 
 describe('HttpClient: request: post', () => {
   it('should execute post request succesfully', () => {
-    vitest.spyOn(axios, 'post').mockImplementation(async () =>
-      Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
-    )
+    vitest
+      .spyOn(axios, 'post')
+      .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
 
     httpClient
       .request<string, P>(mockRequestParams)
