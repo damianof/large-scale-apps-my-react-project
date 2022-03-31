@@ -8,17 +8,18 @@ import './App.css'
 import { Provider } from 'react-redux'
 import { rootStore } from '@/store'
 // import a reference to useLocalization
-import { useLocalization } from '@/localization/useLocalization'
+import { useLocalization } from '@/localization'
 
 // import a reference to our ItemsView component
 import ItemsView from '@/views/Items.view'
 
 import { LocaleSelector } from '@/components/shared/LocaleSelector.component'
+import { DebugFormatters } from '@/components/shared/DebugFormatters.component'
 
 // App component:
 function App() {
   // get what we need from useLocalization:
-  const { t, locales, currentLocale, getUserPreferredLocale, changeLocale } = useLocalization()
+  const { t, locales, currentLocale, changeLocale } = useLocalization()
 
   // an event handler from cahnging the locale
   const onLocaleClick = (lcid: string) => {
@@ -32,6 +33,7 @@ function App() {
         <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t} />
         <h1>{t('home.welcome')}</h1> {/* update this to use the t function to translate our welcome message */}
         <ItemsView />
+        <DebugFormatters show={false} />
       </div>
     </Provider>
   )

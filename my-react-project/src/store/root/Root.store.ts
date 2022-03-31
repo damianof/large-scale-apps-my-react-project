@@ -34,11 +34,10 @@ export function useAppStore(): RootStoreInterface {
     itemsStore: {
       actions: useItemsActions(commit),
       getters: useItemsGetters()
-    },
+    }
     // additional domain store modules will be added here as needed
   }
 }
-
 
 // infer the type of the entire app state
 type IAppState = ReturnType<typeof rootStore.getState>
@@ -49,7 +48,7 @@ type IAppState = ReturnType<typeof rootStore.getState>
  * Returns a snapshot of the current app state (non-reactive)
  * This will be used mainly across store modules (i.e. items/etc)
  * In components we'll usually use getters, not this.
- * @returns 
+ * @returns
  */
 export function getAppState(): IAppState {
   const appState = rootStore.getState()

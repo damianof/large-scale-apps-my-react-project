@@ -10,9 +10,9 @@ let mockRequestParams: HttpRequestParamsInterface<any> = {
 
 describe('HttpClient: request: get', () => {
   it('should execute get request succesfully', () => {
-    vitest.spyOn(axios, 'get').mockImplementation(async () =>
-      Promise.resolve({ data: `request completed: ${mockRequestParams.url}` })
-    )
+    vitest
+      .spyOn(axios, 'get')
+      .mockImplementation(async () => Promise.resolve({ data: `request completed: ${mockRequestParams.url}` }))
 
     httpClient
       .request(mockRequestParams)
