@@ -21,5 +21,10 @@ export default defineConfig({
     exclude: [
       'node_modules'
     ]
-  }
+  },
+  server: {
+    port: 3000,
+    origin: 'http://localhost:3000/',
+    open: 'http://localhost:3000/'
+  },
 })
