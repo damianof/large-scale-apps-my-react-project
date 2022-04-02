@@ -1,11 +1,5 @@
-/* file: App.css */
+/* file: src/tailwind/other.css */
 
-.App {
-  padding: 20px;
-}
-.cursor-pointer {
-  cursor: pointer;
-}
 ul {
   list-style-type: none;
   margin-block-start: 0;

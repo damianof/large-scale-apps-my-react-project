@@ -1,6 +1,8 @@
+// file: src/main.tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+// import tailwind main css file
+import './tailwind/app.css'
 import App from './App'
 // import a reference to our i18n initialization code:
 import './localization/i18n.init'

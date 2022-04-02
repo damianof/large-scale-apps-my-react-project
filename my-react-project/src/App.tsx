@@ -1,17 +1,15 @@
 // file: src/App.tsx
 import * as React from 'react'
 
-// import our app.css
-import './App.css'
-
 // import a reference to Redux Provider and our rootStore
 import { Provider } from 'react-redux'
 import { rootStore } from '@/store'
 // import a reference to useLocalization
 import { useLocalization } from '@/localization'
 
-// import a reference to our ItemsView component
+// import a reference to the Items View
 import ItemsView from '@/views/Items.view'
+import PrimitivesView from '@/views/Primitives.view'
 
 import { LocaleSelector } from '@/components/shared/LocaleSelector.component'
 import { DebugFormatters } from '@/components/shared/DebugFormatters.component'
@@ -29,10 +27,11 @@ function App() {
   return (
     <Provider store={rootStore}>
       {/* wrap the root App element with Redux store provider */}
-      <div className="App">
+      <div className="app m-2 p-2 border-2 border-red-500">
         <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t} />
         <h1>{t('home.welcome')}</h1> {/* update this to use the t function to translate our welcome message */}
         <ItemsView />
+        <PrimitivesView />
         <DebugFormatters show={false} />
       </div>
     </Provider>
