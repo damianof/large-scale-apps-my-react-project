@@ -3,6 +3,8 @@ import * as React from 'react'
 import { ElText } from '@/components/primitives/text/ElText'
 import { ElButton } from '@/components/primitives/buttons/ElButton'
 import { ElToggle } from '@/components/primitives/toggles/ElToggle'
+import { ElIconAlert } from '@/components/primitives/icons'
+import { useModal } from '@/components/primitives/modals/useModal'
 
 // Primitives View:
 function PrimitivesView() {
@@ -25,6 +27,37 @@ function PrimitivesView() {
 
   const onButtonClicked = (id: string) => {
     console.log('onButtonClicked', id)
+  }
+
+  const onOpenDialogClicked = async (id: string) => {
+    console.log('PrimitivesView: onOpeanDialogClicked', id)
+
+    // handle the new buttons with id "open-modal-x" (we'll be adding shortly)
+    if (id === 'open-modal-1') {
+      // here we invoke our useModal with the custom labels for the buttons
+      const modal = useModal({
+        cancelLabel: 'Cancel',
+        confirmLabel: 'Ok',
+        primaryButtonType: 'danger'
+      })
+      // then we invoke modal.prompt() and await it
+      const result = await modal.prompt('Do you want to delete this record?')
+      // the result will be true if the user click on COnfirm, or false if click on Cancel
+      console.log('----- PrimitivesView: onButtonClicked: modal-1 prompt result', result)
+    } else if (id === 'open-modal-2') {
+      // here we invoke our useModal with the custom labels for the buttons + icon and iconAddCss props
+      const modal = useModal({
+        cancelLabel: 'Cancel',
+        confirmLabel: 'Confirm?',
+        longDesc: 'This has also a longer description and an icon',
+        icon: ElIconAlert, // here we use the icon component created earlier
+        iconAddCss: 'text-red-600'
+      })
+      // then we invoke modal.prompt() and await it
+      const result = await modal.prompt('Do you confirm this action?')
+      // the result will be true if the user click on COnfirm, or false if click on Cancel
+      console.log('----- PrimitivesView: onButtonClicked: modal-2 prompt result', result)
+    }
   }
 
   const onToggleClicked = (id: string) => {
@@ -59,6 +92,20 @@ function PrimitivesView() {
           label="This is a disabled button"
           addCss="ml-2"
           onClicked={onButtonClicked}
+        />
+        <ElButton
+          id="open-modal-1"
+          disabled={false}
+          label="Open modal 1"
+          addCss="ml-2"
+          onClicked={onOpenDialogClicked}
+        />
+        <ElButton
+          id="open-modal-2"
+          disabled={false}
+          label="Open modal 2"
+          addCss="ml-2"
+          onClicked={onOpenDialogClicked}
         />
       </div>
 

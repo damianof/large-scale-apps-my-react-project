@@ -1,11 +1,11 @@
 // file: src/components/primitives/toggles/ElToggle.tsx
 type ElToggleProps = {
   testid?: string
-  id: string
+  id?: string
   checked?: boolean
   disabled?: boolean
   addCss?: string
-  onClicked: Function
+  onClicked?: Function
 }
 
 export function ElToggle(props: ElToggleProps) {
@@ -50,7 +50,7 @@ export function ElToggle(props: ElToggleProps) {
   // click handler
   const handleClick = () => {
     // proceed only if the button is not disabled, otherwise ignore the click
-    if (!disabled) {
+    if (!disabled && onClicked) {
       onClicked(id)
     }
   }
