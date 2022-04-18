@@ -20,18 +20,14 @@ describe('Item.component: rendering', () => {
     // render component
     render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
     // get element reference by testid
-    const liElement = screen.getByTestId(`unit-test-item`)
+    const textElement = screen.getByTestId(`unit-test-item-text`)
 
     // test
-    expect(liElement).not.toBeNull()
-
-    // get element children
-    const children = liElement.children
-    expect(children).toHaveLength(2)
-    expect(children.item(1)?.innerHTML).toContain('Unit test item 1')
+    expect(textElement).not.toBeNull()
+    expect(textElement.innerHTML).toContain('Unit test item 1')
   })
 
-  it('renders an Item indicator correctly', () => {
+  it('renders an Item toggle correctly', () => {
     const model: ItemInterface = {
       id: 1,
       name: 'Unit test item 2',
@@ -41,15 +37,10 @@ describe('Item.component: rendering', () => {
     // render component
     render(<ItemComponent testid="unit-test-item" model={model} onItemSelect={() => {}} />)
     // get element reference by testid
-    const liElement = screen.getByTestId(`unit-test-item`)
+    const toggleElement = screen.getByTestId(`unit-test-item-toggle`)
 
     // test
-    expect(liElement).not.toBeNull()
-
-    // get element children
-    const children = liElement.children
-    expect(children).toHaveLength(2)
-    expect(children.item(0)?.innerHTML).toEqual('*')
+    expect(toggleElement).not.toBeNull()
   })
 
   it('has expected css class when selected is true', () => {

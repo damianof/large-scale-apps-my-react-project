@@ -43,6 +43,7 @@ export class ItemsListComponent extends React.Component<Props> {
                 key={index}
                 testid={`items.list.item.${item.id}`}
                 model={item}
+                isLast={index === items.length - 1}
                 onItemSelect={() => this.handleItemClick(item)}
               ></ItemComponent>
             )
