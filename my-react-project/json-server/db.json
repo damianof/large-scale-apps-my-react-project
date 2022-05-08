@@ -1,0 +1,84 @@
+{
+  
+  "items": [
+    {
+      "id": 1,
+      "name": "Item 1 from json-server",
+      "selected": false
+    },
+    {
+      "id": 2,
+      "name": "Item 2 from json-server",
+      "selected": false
+    },
+    {
+      "id": 3,
+      "name": "Item 3 from json-server",
+      "selected": false
+    },
+    {
+      "id": 4,
+      "name": "Item 4 from json-server",
+      "selected": false
+    },
+    {
+      "id": 5,
+      "name": "Item 5 from json-server",
+      "selected": false
+    }
+  ],
+
+  "translation_en-US": {
+    "locale.selector.en-US": "English",
+    "locale.selector.it-IT": "Italian",
+    "locale.selector.fr-FR": "French",
+    "locale.selector.es-ES": "Spanish",
+    "home.welcome": "Welcome: this message is localized in English",
+    "navigation.home": "Home",
+    "navigation.about": "About",
+    "items.list.header": "My Items"
+  },
+
+  "translation_it-IT": {
+    "locale.selector.en-US": "Inglese",
+    "locale.selector.it-IT": "Italiano",
+    "locale.selector.fr-FR": "Francese",
+    "locale.selector.es-ES": "Spagnolo",
+    
+    "home.welcome": "Benvenuti: this message is localized in Italian",
+  
+    "navigation.home": "Home",
+    "navigation.about": "Chi Siamo",
+  
+    "items.list.header": "I miei articoli"
+  },
+
+  "translation_fr-FR": {
+    "locale.selector.en-US": "Anglais",
+    "locale.selector.it-IT": "Italien",
+    "locale.selector.fr-FR": "Français",
+    "locale.selector.es-ES": "Espagnol",
+    
+    "home.welcome": "Bienvenue: this message is localized in French",
+  
+    "navigation.home": "Accueil",
+    "navigation.about": "À propos de nous",
+  
+    "items.list.header": "Mes articles"
+  },
+
+  "translation_es-ES": {
+    "locale.selector.en-US": "Inglés",
+    "locale.selector.it-IT": "Italiano",
+    "locale.selector.fr-FR": "Francés",
+    "locale.selector.es-ES": "Español",
+    
+    "home.welcome": "Bienvenido: this message is localized in Spanish",
+  
+    "navigation.home": "Inicio",
+    "navigation.about": "Acerca de",
+  
+    "items.list.header": "Mis cosas"
+  }
+  
+}

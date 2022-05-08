@@ -1,6 +1,6 @@
 {
   "global": {
-    "version": 0.1
+    "version": 0.103
   },
 
   "httpClient": {
@@ -15,7 +15,7 @@
   "items": {
     "apiClientOptions": {
       "endpoints": {
-        "fetchItems": "/path/to/your/real/PRODUCTION/api/and-point"
+        "fetchItems": "/jsonserver/items"
       },
       "mockDelay": 0
     }
@@ -24,7 +24,7 @@
   "localization": {
     "apiClientOptions": {
       "endpoints": {
-        "fetchTranslation": "path/to/your/real/PRODUCTION/api/and-point"
+        "fetchTranslation": "/jsonserver/[namespace]_[key]"
       },
       "mockDelay": 0
     },

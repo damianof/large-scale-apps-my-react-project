@@ -4,25 +4,26 @@ import { UrlUtils } from '@/http-client'
 
 describe('UrlUtils: getFullUrlWithParams', () => {
   it('should return fullUrl formatted as expected with one param', () => {
-    const baseUrl = 'https://unit-test-api/v1/people/[organizationId]/demographics'
+    const endpoint = 'https://unit-test-api/v1/domain/[catalogId]/[partId]'
     const params = {
-      organizationId: 5346782
+      catalogId: 5346782,
+      partId: 'abcde23'
     }
-    const result = UrlUtils.getFullUrlWithParams(baseUrl, params)
+    const result = UrlUtils.getFullUrlWithParams(endpoint, params)
 
-    expect('https://unit-test-api/v1/people/5346782/demographics').toEqual(result)
+    expect('https://unit-test-api/v1/domain/5346782/abcde23').toEqual(result)
   })
 
+  // test our component click event
   it('should return fullUrl formatted as expected with multiple params', () => {
-    const baseUrl = 'https://unit-test-api/v1/people/[organizationId]/[country]/[state]/[cityId]'
+    const endpoint = 'https://unit-test-api/v1/domain/[country]/[state]/[cityId]'
     const params = {
-      organizationId: 5346782,
       country: 'USA',
-      state: 'CA',
-      cityId: 'abcdef12345'
+      state: 'NY',
+      cityId: 'gtref345ytr'
     }
-    const result = UrlUtils.getFullUrlWithParams(baseUrl, params)
+    const result = UrlUtils.getFullUrlWithParams(endpoint, params)
 
-    expect('https://unit-test-api/v1/people/5346782/USA/CA/abcdef12345').toEqual(result)
+    expect('https://unit-test-api/v1/domain/USA/NY/gtref345ytr').toEqual(result)
   })
 })

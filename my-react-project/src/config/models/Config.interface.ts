@@ -1,9 +1,10 @@
 // file: src/config/models/Config.interface.ts
 
-import { ItemsApiClientUrlsInterface, LocalizationApiClientUrlsInterface } from '@/api-client/models'
+import { ItemsApiClientOptions, LocalizationApiClientOptions } from '../../api-client/models'
 
 export interface HttpClientConfigInterface {
   tokenKey: string
+  clientType: string
 }
 
 /**
@@ -24,11 +25,11 @@ export interface ConfigInterface {
   }
 
   items: {
-    apiUrls: ItemsApiClientUrlsInterface
+    apiClientOptions: ItemsApiClientOptions
   }
 
   localization: {
-    apiUrls: LocalizationApiClientUrlsInterface
+    apiClientOptions: LocalizationApiClientOptions
     locales: { key: string; isDefault: boolean }[]
     localStorageCache: { enabled: boolean; expirationInMinutes: number }
   }

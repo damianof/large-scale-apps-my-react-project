@@ -5,10 +5,8 @@ import { config } from '@/config'
 
 import { ItemsApiClientInterface, ItemsApiClientModel } from '../../models'
 
-// instantiate the ItemsApiClient pointing at the url that returns static json mock data
-const itemsApiClient: ItemsApiClientInterface = new ItemsApiClientModel({
-  urls: config.items.apiUrls
-})
+// instantiate the ItemsApiClient pointing at the url that returns live data
+const itemsApiClient: ItemsApiClientInterface = new ItemsApiClientModel(config.items.apiClientOptions)
 
 // export our instance
 export { itemsApiClient }

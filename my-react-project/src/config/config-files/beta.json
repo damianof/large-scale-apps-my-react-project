@@ -4,16 +4,29 @@
   },
 
   "httpClient": {
-    "tokenKey": "myapp-token"
+    "tokenKey": "myapp-token",
+    "clientType": "fetch"
   },
 
   "apiClient": {
     "type": "live"
   },
 
+  "items": {
+    "apiClientOptions": {
+      "endpoints": {
+        "fetchItems": "/path/to/your/real/BETA/api/and-point"
+      },
+      "mockDelay": 0
+    }
+  },
+
   "localization": {
-    "apiUrls": {
-      "fetchTranslation": "path/to/your/real/BETA/api/and-point"
+    "apiClientOptions": {
+      "endpoints": {
+        "fetchTranslation": "/path/to/your/real/BETA/api/and-poin/[namespace]/[key].json"
+      },
+      "mockDelay": 0
     },
     "locales": [
       { "key": "en-US", "isDefault": true },
@@ -24,12 +37,6 @@
     "localStorageCache": { 
       "enabled": true, 
       "expirationInMinutes": 60
-    }
-  },
-  
-  "items": {
-    "apiUrls": {
-      "fetchItems": "/path/to/your/real/BETA/api/and-point"
     }
   }
 }
