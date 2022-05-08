@@ -6,6 +6,7 @@ import { ConfigInterface } from './models/Config.interface'
 // individual environments configs:
 import configMock from './config-files/mock.json'
 import configLocal from './config-files/localapis.json'
+import configJsonServer from './config-files/jsonserver.json'
 import configBeta from './config-files/beta.json'
 import configProduction from './config-files/production.json'
 
@@ -25,6 +26,7 @@ import configProduction from './config-files/production.json'
 export const configFilesMap: Map<string, ConfigInterface> = new Map<string, ConfigInterface>([
   ['mock', configMock],
   ['localapis', configLocal],
+  ['jsonserver', configJsonServer],
   ['beta', configBeta],
   ['production', configProduction]
 ])

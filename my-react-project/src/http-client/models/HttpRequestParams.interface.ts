@@ -1,6 +1,6 @@
 // file: src/http-client/models/HttpRequestParams.interface.ts
 
-import { HttpRequestType } from './HttpRequestType.enum'
+import { HttpRequestType } from './Constants'
 
 /**
  * @name HttpRequestParamsInterface
@@ -11,7 +11,9 @@ import { HttpRequestType } from './HttpRequestType.enum'
  */
 export interface HttpRequestParamsInterface<P = void> {
   requestType: HttpRequestType
-  url: string
+  endpoint: string
   requiresToken: boolean
+  headers?: { [key: string]: string }
   payload?: P
+  mockDelay?: number
 }

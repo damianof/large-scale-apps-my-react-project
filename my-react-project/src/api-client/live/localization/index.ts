@@ -6,9 +6,9 @@ import { config } from '@/config'
 import { LocalizationApiClientInterface, LocalizationApiClientModel } from '../../models'
 
 // instantiate the LocalizationApiClient pointing at the url that returns static json mock data
-const localizationApiClient: LocalizationApiClientInterface = new LocalizationApiClientModel({
-  urls: config.localization.apiUrls
-})
+const localizationApiClient: LocalizationApiClientInterface = new LocalizationApiClientModel(
+  config.localization.apiClientOptions
+)
 
 // export our instance
 export { localizationApiClient }

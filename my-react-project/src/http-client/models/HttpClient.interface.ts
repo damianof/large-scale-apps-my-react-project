@@ -3,6 +3,16 @@
 import { HttpRequestParamsInterface } from './HttpRequestParams.interface'
 
 /**
+ * @name HttpClientConfigInterface
+ * @description
+ * We'll drive the HttpClient from configuration in later chapters.
+ */
+export interface HttpClientConfigInterface {
+  tokenKey: string
+  clientType: string
+}
+
+/**
  * @name HttpClientInterface
  * @description
  * Represents our HttpClient.

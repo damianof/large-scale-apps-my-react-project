@@ -1,12 +1,23 @@
 // file: src/http-client/index.ts
 
 import { HttpClientInterface } from './models/HttpClient.interface'
-import { HttpClientAxios } from './models/HttpClient.axios'
-//import { config } from '@/config'
+import { config } from '@/config'
 
-// export instance of HttpClientInterface
-//export const httpClient: HttpClientInterface = new HttpClientAxios(config.httpClient)
-export const httpClient: HttpClientInterface = new HttpClientAxios() // temporarily avoiding config to make vite unit tests happy
+import { HttpClientAxios } from './models/HttpClient.axios'
+import { HttpClientFetch } from './models/HttpClient.fetch'
+
+// export instance of HttpClientInterface (by default is fetch)
+const clientType = config.httpClient.clientType
+let httpClient: HttpClientInterface = new HttpClientFetch()
+
+// if you'd like to use axios, set "clientType": "axios" within the config files --- within "httpClient" object
+if (clientType === 'fetch') {
+  httpClient = new HttpClientFetch()
+} else if (clientType === 'axios') {
+  httpClient = new HttpClientAxios()
+}
+
+export { httpClient }
 
 // also export all our interfaces/models/enums
 export * from './models'

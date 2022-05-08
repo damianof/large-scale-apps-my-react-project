@@ -3,11 +3,9 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 import { HttpRequestParamsInterface } from './HttpRequestParams.interface'
-import { HttpClientInterface } from './HttpClient.interface'
-import { HttpRequestType } from './HttpRequestType.enum'
+import { HttpClientInterface, HttpClientConfigInterface } from './HttpClient.interface'
+import { HttpRequestType, HttpContentTypes } from './Constants'
 import { UrlUtils } from './UrlUtils'
-
-import { HttpClientConfigInterface } from '@/config/models/Config.interface'
 
 /**
  * @name HttpClientAxios
@@ -16,10 +14,7 @@ import { HttpClientConfigInterface } from '@/config/models/Config.interface'
  * and simplify replacement in the future if such npm package would stop being developed or other reasons
  */
 export class HttpClientAxios implements HttpClientInterface {
-  private _httpClientConfig?: HttpClientConfigInterface
-
-  constructor(httpClientConfig?: HttpClientConfigInterface) {
-    this._httpClientConfig = httpClientConfig
+  constructor() {
     // OPTIONAL for now: Add request interceptor to handle errors or other things for each request in one place
   }
 
@@ -32,23 +27,32 @@ export class HttpClientAxios implements HttpClientInterface {
    * The type P specify the type of payload if any
    * @returns A Promise<R> as the implementation of this method will be async.
    */
-  async request<R, P = void>(parameters: HttpRequestParamsInterface<P>): Promise<R> {
+  async request<R, P>(parameters: HttpRequestParamsInterface<P>): Promise<R> {
     // use destructuring to extract our parameters into local variables
-    const { requestType, url, requiresToken, payload } = parameters
+    const { requestType, endpoint, requiresToken, payload, headers, mockDelay } = parameters
 
     // use helper to build the fullUrl with request parameters derived from the payload
-    const fullUrl = UrlUtils.getFullUrlWithParams(url, payload as any)
-    //console.log('HttpClient: fullUrl: ', fullUrl, payload)
+    const fullUrl = UrlUtils.getFullUrlWithParams(endpoint, payload as any)
+    console.log('HttpClientAxios: fullUrl: ', fullUrl, payload)
 
     // set axios options
     const options: AxiosRequestConfig = {
-      headers: {}
+      headers: {},
+      maxRedirects: 0
+    }
+
+    if (headers) {
+      options.headers = {
+        //...options.headers,
+        ...headers
+      }
     }
 
     // set headers Authorization
     if (requiresToken && options.headers) {
+      options.withCredentials = true
       // optional: you could add coded here to set the Authorization header with a bearer token
-      // options.headers.Authorization = `bearer ...`
+      // options.headers.Authorization = `bearer ${ JwtHelpers.getJwtToken() }`
     }
 
     let result!: R
@@ -83,13 +87,28 @@ export class HttpClientAxios implements HttpClientInterface {
           break
         }
 
+        // executes a patch request:
+        case HttpRequestType.patch: {
+          const response = await axios.patch(fullUrl, payload, options)
+          result = response?.data as R
+          break
+        }
+
         default: {
-          console.warn('HttpClient: invalid requestType argument or request type not implemented')
+          console.warn('HttpClientAxios: invalid requestType argument or request type not implemented')
         }
       }
     } catch (e) {
-      //console.error('HttpClient exception', e)
-      throw Error(`HttpClient exception`)
+      console.error('HttpClientAxios: exception', e)
+      throw Error('HttpClientAxios: exception')
+    }
+
+    if ((mockDelay || 0) > 0) {
+      return new Promise<R>((resolve) => {
+        setTimeout(() => {
+          resolve(result)
+        }, mockDelay)
+      })
     }
 
     return result

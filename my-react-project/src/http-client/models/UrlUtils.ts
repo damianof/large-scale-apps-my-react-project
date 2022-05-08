@@ -1,4 +1,9 @@
-const UrlUtils = {
+// file: src/http-client/models/UrlUtils.ts
+export interface UrlUtilsInterface {
+  getFullUrlWithParams(baseUrl: string, params: { [key: string]: number | string }): string
+}
+
+export const UrlUtils: UrlUtilsInterface = {
   /**
    * @name getFullUrlWithParams
    * @description Returns the full formatted url for an API end-point
@@ -19,5 +24,3 @@ const UrlUtils = {
     return fullUrl
   }
 }
-
-export { UrlUtils }
