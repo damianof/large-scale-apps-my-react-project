@@ -1,6 +1,8 @@
 // file: src/App.tsx
 import * as React from 'react'
 
+import { Counter, SampleComp } from 'my-component-library'
+
 // import a reference to Redux Provider and our rootStore
 import { Provider } from 'react-redux'
 import { rootStore } from '@/store'
@@ -27,6 +29,10 @@ function App() {
   return (
     <Provider store={rootStore}>
       {/* wrap the root App element with Redux store provider */}
+      <div>
+        <SampleComp text="This is a sample component from my-component-library" />
+        <Counter />
+      </div>
       <div className="app m-2 p-2 border-2 border-red-500">
         <LocaleSelector locales={locales} currentLocale={currentLocale} onLocaleClick={onLocaleClick} t={t} />
         <h1>{t('home.welcome')}</h1> {/* update this to use the t function to translate our welcome message */}
