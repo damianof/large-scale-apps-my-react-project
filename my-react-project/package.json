@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@builtwithjavascript/formatters": "^1.0.5",
+    "@largescaleapps/my-js-helpers": "^0.1.21",
     "@reduxjs/toolkit": "^1.7.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

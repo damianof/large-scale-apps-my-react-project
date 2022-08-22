@@ -1,6 +1,10 @@
 // file: src/App.tsx
 import * as React from 'react'
 
+import {
+  randomid
+} from '@largescaleapps/my-js-helpers'
+
 import { Counter, SampleComp } from 'my-component-library'
 
 // import a reference to Redux Provider and our rootStore
@@ -30,7 +34,8 @@ function App() {
     <Provider store={rootStore}>
       {/* wrap the root App element with Redux store provider */}
       <div>
-        <SampleComp text="This is a sample component from my-component-library" />
+        <p>[randomid() result (from my-js-helpers): { randomid() }]</p>
+        <SampleComp text={`This is a sample component from my-component-library: ${ randomid() }`} />
         <Counter />
       </div>
       <div className="app m-2 p-2 border-2 border-red-500">
