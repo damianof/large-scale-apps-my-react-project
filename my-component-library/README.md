@@ -1,20 +1,19 @@
 # my-component-library
 
-# dependencies
-    "@types/react": "^18.2.34",
-    "@types/react-dom": "^18.2.14",
-    "@vitejs/plugin-react": "^4.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+### Dependencies
+  "@types/react": "^18.3.1",
+  "@types/react-dom": "^18.3.0",
+  "@vitejs/plugin-react": "^4.2.1",
+  "react": "^18.3.1",
+  "react-dom": "^18.3.1",
+  "typescript": "^5.4.5",
+  "vite": "^5.2.10"
 
-### old dependencies
-
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "@vitejs/plugin-react": "^2.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^4.9.3",
-    "vite": "^3.2.4"
+### Old Dependencies
+  "@types/react": "^18.2.34",
+  "@types/react-dom": "^18.2.14",
+  "@vitejs/plugin-react": "^4.1.1",
+  "react": "^18.2.0",
+  "react-dom": "^18.2.0",
+  "typescript": "^5.2.2",
+  "vite": "^4.5.0"
